@@ -26,23 +26,23 @@ namespace AdaptorLayer
 
         public void Update()
         {
-            if (_input.IsEscapePressed())
+            if (_input.IsCloseApplicationPressed())
             {
                 ExitGame = true;
             }
-            if (_input.IsUpPressed())
+            if (_input.IsMoveUpPressed())
             {
                 _useCases.GetMoveControlledCharacter(_gameObjects).MoveUp();
             }
-            if (_input.IsDownPressed())
+            if (_input.IsMoveDownPressed())
             {
                 _useCases.GetMoveControlledCharacter(_gameObjects).MoveDown();
             }
-            if (_input.IsRightPressed())
+            if (_input.IsMoveRightPressed())
             {
                 _useCases.GetMoveControlledCharacter(_gameObjects).MoveRight();
             }
-            if (_input.IsLeftPressed())
+            if (_input.IsMoveLeftPressed())
             {
                 _useCases.GetMoveControlledCharacter(_gameObjects).MoveLeft();
             }

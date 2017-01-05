@@ -1,6 +1,7 @@
 ﻿using System;
 using AdaptorLayer;
 using OpenTK.Input;
+using OnionMaster.Properties;
 
 namespace OnionMaster
 {
@@ -13,29 +14,29 @@ namespace OnionMaster
             _keyboard = keyboard;
         }
 
-        public bool IsDownPressed()
+        public bool IsMoveDownPressed()
         {
-            return _keyboard[Key.Down];
+            return _keyboard[Settings.Default.KeyMoveDown];
         }
 
-        public bool IsEscapePressed()
+        public bool IsCloseApplicationPressed()
         {
-            return _keyboard[Key.Escape];
+            return _keyboard[Settings.Default.KeyCloseApplication];
         }
 
-        public bool IsLeftPressed()
+        public bool IsMoveLeftPressed()
         {
-            return _keyboard[Key.Left];
+            return _keyboard[Settings.Default.KeyMoveLeft];
         }
 
-        public bool IsRightPressed()
+        public bool IsMoveRightPressed()
         {
-            return _keyboard[Key.Right];
+            return _keyboard[Settings.Default.KeyMoveRight];
         }
 
-        public bool IsUpPressed()
+        public bool IsMoveUpPressed()
         {
-            return _keyboard[Key.Up];
+            return _keyboard[Settings.Default.KeyMoveUp];
         }
     }
 }

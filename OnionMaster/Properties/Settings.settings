@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OnionMaster.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ResourceFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Resources\</Value>
+    </Setting>
+    <Setting Name="SessionDataFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SessionData.json</Value>
+    </Setting>
+    <Setting Name="TileFilename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tiles.png</Value>
+    </Setting>
+    <Setting Name="WindowWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">512</Value>
+    </Setting>
+    <Setting Name="WindowHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">512</Value>
+    </Setting>
+    <Setting Name="VSync" Type="OpenTK.VSyncMode" Scope="User">
+      <Value Profile="(Default)">On</Value>
+    </Setting>
+    <Setting Name="WindowState" Type="OpenTK.WindowState" Scope="User">
+      <Value Profile="(Default)">Fullscreen</Value>
+    </Setting>
+    <Setting Name="WindowBorder" Type="OpenTK.WindowBorder" Scope="User">
+      <Value Profile="(Default)">Hidden</Value>
+    </Setting>
+    <Setting Name="FPS" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="UPS" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="Title" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OnionMaster</Value>
+    </Setting>
+    <Setting Name="KeyMoveUp" Type="OpenTK.Input.Key" Scope="User">
+      <Value Profile="(Default)">Up</Value>
+    </Setting>
+    <Setting Name="KeyMoveDown" Type="OpenTK.Input.Key" Scope="User">
+      <Value Profile="(Default)">Down</Value>
+    </Setting>
+    <Setting Name="KeyMoveRight" Type="OpenTK.Input.Key" Scope="User">
+      <Value Profile="(Default)">Right</Value>
+    </Setting>
+    <Setting Name="KeyMoveLeft" Type="OpenTK.Input.Key" Scope="User">
+      <Value Profile="(Default)">Left</Value>
+    </Setting>
+    <Setting Name="KeyCloseApplication" Type="OpenTK.Input.Key" Scope="User">
+      <Value Profile="(Default)">Escape</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

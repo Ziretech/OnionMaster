@@ -92,7 +92,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Renderer.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="TileSet.cs" />
     <Compile Include="TileSets.cs" />
     <Compile Include="Window.cs" />
@@ -102,6 +108,10 @@
     <None Include="OnionMaster_TemporaryKey.pfx" />
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\OnionMaster.ico" />
     <Content Include="Resources\SessionData.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

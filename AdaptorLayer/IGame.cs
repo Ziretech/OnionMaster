@@ -2,10 +2,10 @@
 {
     public interface IInput
     {
-        bool IsEscapePressed();
-        bool IsDownPressed();
-        bool IsUpPressed();
-        bool IsRightPressed();
-        bool IsLeftPressed();
+        bool IsCloseApplicationPressed();
+        bool IsMoveDownPressed();
+        bool IsMoveUpPressed();
+        bool IsMoveRightPressed();
+        bool IsMoveLeftPressed();
     }
 }

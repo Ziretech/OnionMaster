@@ -21,27 +21,27 @@
             _left = left;
         }
 
-        public bool IsDownPressed()
+        public bool IsMoveDownPressed()
         {
             return _down;
         }
 
-        public bool IsEscapePressed()
+        public bool IsCloseApplicationPressed()
         {
             return _escape;
         }
 
-        public bool IsLeftPressed()
+        public bool IsMoveLeftPressed()
         {
             return _left;
         }
 
-        public bool IsRightPressed()
+        public bool IsMoveRightPressed()
         {
             return _right;
         }
 
-        public bool IsUpPressed()
+        public bool IsMoveUpPressed()
         {
             return _up;
         }
