@@ -1,0 +1,37 @@
+﻿[
+    {
+        "Name": "PlayerCharacter",
+        "Renderable": {
+            "TileSetId": 0,
+            "TileSetX": 0,
+            "TileSetY": 0,
+            "TileWidth": 32,
+            "TileHeight": 32
+        },
+        "Positional": {
+            "X": 128,
+            "Y": 0,
+            "Z": 10
+        },
+        "Controllable": {
+            "MoveUp": 1,
+            "MoveDown": 1,
+            "MoveLeft": 1,
+            "MoveRight": 1
+        }
+    },
+    {
+        "Renderable": {
+            "TileSetId": 0,
+            "TileWidth": 32,
+            "TileHeight": 32,
+            "TileSetX": 32,
+            "TileSetY": 0
+        },
+        "Positional": {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+        }
+    }
+]

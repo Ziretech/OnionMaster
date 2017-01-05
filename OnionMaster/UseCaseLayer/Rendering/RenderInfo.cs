@@ -1,0 +1,39 @@
+﻿using EntityLayer;
+
+namespace UseCaseLayer.Rendering
+{
+    public class RenderInfo
+    {
+        public int ScreenX { get; private set; }
+        public int ScreenY { get; private set; }
+        public int ScreenLayer { get; private set; }
+        public int TileSetX { get; private set; }
+        public int TileSetY { get; private set; }
+        public int TileSetId { get; private set; }
+        public int TileWidth { get; private set; }
+        public int TileHeight { get; private set; }
+
+        public RenderInfo(int screenX, int screenY, int screenLayer, int tileSetId, int tileSetX, int tileSetY, int tileWidth, int tileHeight)
+        {
+            ScreenX = screenX;
+            ScreenY = screenY;
+            ScreenLayer = screenLayer;
+            TileSetId = tileSetId;
+            TileSetX = tileSetX;
+            TileSetY = tileSetY;
+            TileWidth = tileWidth;
+            TileHeight = tileHeight;
+        }
+
+        public RenderInfo(Positional positional, Renderable renderable) : this(
+            positional.X,
+            positional.Y,
+            positional.Z,
+            renderable.TileSetId,
+            renderable.TileSetX,
+            renderable.TileSetY,
+            renderable.TileWidth,
+            renderable.TileHeight)
+        { }
+    }
+}
