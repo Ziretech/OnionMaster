@@ -31,7 +31,7 @@ namespace OnionMaster
 
         public void Show()
         {
-            RunGameAt60UpdatesPerSecond();
+            _gameWindow.Run(30.0);
         }
 
         private void Load(object sender, EventArgs e)
@@ -58,11 +58,6 @@ namespace OnionMaster
         {
             _renderer.Render(_session.DrawScreen());
             _gameWindow.SwapBuffers();
-        }
-
-        private void RunGameAt60UpdatesPerSecond()
-        {
-            _gameWindow.Run(30.0);
         }
     }
 }

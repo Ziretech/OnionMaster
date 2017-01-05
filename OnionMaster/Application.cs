@@ -8,31 +8,28 @@ namespace OnionMaster
 {
     class Application
     {
-        //[STAThread]
         public static void Main()
         {
-            var sessionData = File.ReadAllText(@"Resources\SessionData.json");
-            var gameWindow = getGameWindow();
-
+            var config = new ApplicationConfig();
+            var sessionData = File.ReadAllText(config.SessionDataPath);
+            var gameWindow = getGameWindow(config);
             var session = new Session(sessionData, new PlayerInteraction(gameWindow.Keyboard), new UseCaseProvider());
-
-
-            var window = new Window(session, new List<Bitmap> { new Bitmap(@"Resources\tiles.png") }, gameWindow, new GraphicWrapper());
+            var window = new Window(session, new List<Bitmap> { new Bitmap(config.TilePath) }, gameWindow, new GraphicWrapper());
             window.Show();
         }
 
-        private static GameWindow getGameWindow()
+        private static GameWindow getGameWindow(ApplicationConfig config)
         {
             var gameWindow = new GameWindow();
-            gameWindow.Width = 16 * 32;
-            gameWindow.Height = 16 * 32;
-            gameWindow.VSync = VSyncMode.On;
-            if (true)
+            gameWindow.Width = config.WindowWidth;
+            gameWindow.Height = config.WindowHeight;
+            gameWindow.VSync = config.VSync;
+            if (config.Fullscreen)
             {
                 gameWindow.WindowBorder = WindowBorder.Hidden;
                 gameWindow.WindowState = WindowState.Fullscreen;
             }
             return gameWindow;
-        }
+        }        
     }
 }
