@@ -57,11 +57,11 @@
     <Compile Include="UseCaseProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OnionMaster\EntityLayer\EntityLayer.csproj">
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{92d72342-1638-44ef-99e7-3465efbf49e1}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OnionMaster\UseCaseLayer\UseCaseLayer.csproj">
+    <ProjectReference Include="..\UseCaseLayer\UseCaseLayer.csproj">
       <Project>{629c5e8f-4357-46c2-ae67-f5b45f3886ed}</Project>
       <Name>UseCaseLayer</Name>
     </ProjectReference>

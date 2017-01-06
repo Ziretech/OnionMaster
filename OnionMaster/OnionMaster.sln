@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMaster", "OnionMaster.csproj", "{2F3ECD36-AB55-494D-8677-B14A5320BCDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayer", "..\AdaptorLayer\AdaptorLayer.csproj", "{B1DDD7C5-3449-4908-955C-E41AA25E71BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayer", "AdaptorLayer\AdaptorLayer.csproj", "{B1DDD7C5-3449-4908-955C-E41AA25E71BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCaseLayer", "UseCaseLayer\UseCaseLayer.csproj", "{629C5E8F-4357-46C2-AE67-F5B45F3886ED}"
 EndProject

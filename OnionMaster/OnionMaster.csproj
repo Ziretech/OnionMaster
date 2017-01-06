@@ -118,7 +118,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdaptorLayer\AdaptorLayer.csproj">
+    <ProjectReference Include="AdaptorLayer\AdaptorLayer.csproj">
       <Project>{b1ddd7c5-3449-4908-955c-e41aa25e71bb}</Project>
       <Name>AdaptorLayer</Name>
     </ProjectReference>
