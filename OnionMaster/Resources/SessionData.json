@@ -3,10 +3,10 @@
         "Name": "PlayerCharacter",
         "Renderable": {
             "TileSetId": 0,
-            "TileSetX": 0,
-            "TileSetY": 0,
+            "TileSetX": 128,
+            "TileSetY": 448,
             "TileWidth": 32,
-            "TileHeight": 32
+            "TileHeight": 64
         },
         "Positional": {
             "X": 128,
@@ -14,10 +14,10 @@
             "Z": 10
         },
         "Controllable": {
-            "MoveUp": 1,
-            "MoveDown": 1,
-            "MoveLeft": 1,
-            "MoveRight": 1
+            "MoveUp": 2,
+            "MoveDown": 2,
+            "MoveLeft": 2,
+            "MoveRight": 2
         }
     },
     {
@@ -26,10 +26,24 @@
             "TileWidth": 32,
             "TileHeight": 32,
             "TileSetX": 32,
-            "TileSetY": 0
+            "TileSetY": 352
         },
         "Positional": {
             "X": 0,
+            "Y": 0,
+            "Z": 0
+        }
+    },
+    {
+        "Renderable": {
+            "TileSetId": 0,
+            "TileWidth": 32,
+            "TileHeight": 32,
+            "TileSetX": 32,
+            "TileSetY": 352
+        },
+        "Positional": {
+            "X": 32,
             "Y": 0,
             "Z": 0
         }

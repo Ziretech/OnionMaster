@@ -4,6 +4,8 @@ using System.Drawing;
 using OpenTK;
 using AdaptorLayer;
 using OnionMaster.Properties;
+using Newtonsoft.Json;
+using EntityLayer;
 
 namespace OnionMaster
 {
@@ -11,11 +13,13 @@ namespace OnionMaster
     {
         public static void Main()
         {
-            var config = new ApplicationConfig();
-            var sessionData = File.ReadAllText(Settings.Default.ResourceFolder + Settings.Default.SessionDataFilename);
+            var sessionDataPath = Settings.Default.ResourceFolder + Settings.Default.SessionDataFilename;
+            var tilesPath = Settings.Default.ResourceFolder + Settings.Default.TileFilename;
+            var sessionData = File.ReadAllText(sessionDataPath);
+            var data = JsonConvert.DeserializeObject<List<GameObject>>(sessionData);
             var gameWindow = getGameWindow();
-            var session = new Session(sessionData, new PlayerInteraction(gameWindow.Keyboard), new UseCaseProvider());
-            var window = new Window(session, new List<Bitmap> { new Bitmap(config.TilePath) }, gameWindow, new GraphicWrapper());
+            var session = new Session(data, new PlayerInteraction(gameWindow.Keyboard), new UseCaseProvider());
+            var window = new Window(session, new List<Bitmap> { new Bitmap(tilesPath) }, gameWindow, new GraphicWrapper());
             window.Show();
         }
 

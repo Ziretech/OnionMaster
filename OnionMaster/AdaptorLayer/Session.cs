@@ -12,9 +12,9 @@ namespace AdaptorLayer
         private readonly IInput _input;
         private readonly IUseCaseProvider _useCases;
 
-        public Session(string data, IInput input, IUseCaseProvider useCases)
+        public Session(List<GameObject> data, IInput input, IUseCaseProvider useCases)
         {
-            _gameObjects = JsonConvert.DeserializeObject<List<GameObject>>(data);
+            _gameObjects = data;
             _input = input;
             _useCases = useCases;
         }
