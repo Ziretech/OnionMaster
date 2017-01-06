@@ -1,0 +1,16 @@
+﻿[
+    {
+        "renderable": {
+            "tilesetid": 0,
+            "tilesetx": 13,
+            "tilesety": 17,
+            "tilewidth": 32,
+            "tileheight": 64
+        },
+        "positional": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+        }
+    }
+]
