@@ -1,15 +1,15 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 using EntityLayer;
+using NUnit.Framework;
 
 namespace UseCaseLayer.Rendering
 {
-    [TestClass]
+    [TestFixture]
     public class ShowAllRenderableObjects_RenderTest
     {
-        [TestMethod]
+        [Test]
         public void Should_find_render_info_from_object_that_can_be_rendered()
         {
             var objects = new List<GameObject> {
@@ -21,19 +21,20 @@ namespace UseCaseLayer.Rendering
             };
 
             var renderInfos = new ShowAllRenderableObjects(objects).Render();
-            Assert.AreEqual(1, renderInfos.ToList().Count, "Count");
+            Assert.That(renderInfos.Count, Is.EqualTo(1));
             var info = renderInfos.First();
-            Assert.AreEqual(0, info.TileSetId, "TileSetId");
-            Assert.AreEqual(24, info.TileSetX, "TileSetX");
-            Assert.AreEqual(17, info.TileSetY, "TileSetY");
-            Assert.AreEqual(32, info.TileWidth, "TileWidth");
-            Assert.AreEqual(64, info.TileHeight, "TileHeight");
-            Assert.AreEqual(1, info.ScreenX, "ScreenX");
-            Assert.AreEqual(2, info.ScreenY, "ScreenY");
-            Assert.AreEqual(3, info.ScreenLayer, "ScreenLayer");
+            Assert.That(renderInfos.First().TileSetId, Is.EqualTo(0));
+            Assert.That(renderInfos.First().TileSetX, Is.EqualTo(24));
+            Assert.That(renderInfos.First().TileSetY, Is.EqualTo(17));
+            Assert.That(renderInfos.First().TileWidth, Is.EqualTo(32));
+            Assert.That(renderInfos.First().TileHeight, Is.EqualTo(64));
+
+            Assert.That(renderInfos.First().ScreenX, Is.EqualTo(1));
+            Assert.That(renderInfos.First().ScreenY, Is.EqualTo(2));
+            Assert.That(renderInfos.First().ScreenLayer, Is.EqualTo(3));
         }
 
-        [TestMethod]
+        [Test]
         public void Should_not_find_any_render_info_from_not_renderable_object()
         {
             var objects = new List<GameObject> {
@@ -43,10 +44,10 @@ namespace UseCaseLayer.Rendering
                     Positional = new Positional(1, 2, 3)
                 }
             };
-            Assert.IsFalse(new ShowAllRenderableObjects(objects).Render().Any());
+            Assert.That(new ShowAllRenderableObjects(objects).Render(), Is.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void Should_not_find_any_render_info_from_renderable_objects_without_position()
         {
             var objects = new List<GameObject> {
@@ -56,22 +57,21 @@ namespace UseCaseLayer.Rendering
                     Positional = null
                 }
             };
-            Assert.IsFalse(new ShowAllRenderableObjects(objects).Render().Any());
+            Assert.That(new ShowAllRenderableObjects(objects).Render(), Is.Empty);
         }
 
-        [TestMethod]
+        [Test]
         public void Should_not_find_render_info_when_there_is_no_objects()
         {
             var objects = new List<GameObject>();
             var renderInfo = new ShowAllRenderableObjects(objects).Render();
-            Assert.IsFalse(renderInfo.Any());
+            Assert.That(renderInfo, Is.Empty);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [Test]
         public void Should_throw_ArgumentNullException_when_object_list_is_null()
         {
-            new ShowAllRenderableObjects(null);
+            Assert.Throws<ArgumentNullException>(() => new ShowAllRenderableObjects(null));
         }
     }
 }
