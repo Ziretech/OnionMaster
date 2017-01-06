@@ -9,7 +9,7 @@
       <Value Profile="(Default)">SessionData.json</Value>
     </Setting>
     <Setting Name="TileFilename" Type="System.String" Scope="User">
-      <Value Profile="(Default)">tiles.png</Value>
+      <Value Profile="(Default)">test.png</Value>
     </Setting>
     <Setting Name="WindowWidth" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">512</Value>

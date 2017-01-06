@@ -121,32 +121,4 @@
   <data name="OnionMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OnionMaster.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ResourceFolder" xml:space="preserve">
-    <value>Resources\</value>
-    <comment>Path to resource folder</comment>
-  </data>
-  <data name="ScreenMode" xml:space="preserve">
-    <value>fullscreen</value>
-    <comment>fullscreen|windowed</comment>
-  </data>
-  <data name="SessionDataFilename" xml:space="preserve">
-    <value>SessionData.json</value>
-    <comment>Game data filename</comment>
-  </data>
-  <data name="TileFilename" xml:space="preserve">
-    <value>tiles.png</value>
-    <comment>Tileset bitmap filename</comment>
-  </data>
-  <data name="VSync" xml:space="preserve">
-    <value>on</value>
-    <comment>on|off|adaptive</comment>
-  </data>
-  <data name="WindowedHeight" xml:space="preserve">
-    <value>512</value>
-    <comment>Integer</comment>
-  </data>
-  <data name="WindowedWidth" xml:space="preserve">
-    <value>512</value>
-    <comment>Integer</comment>
-  </data>
 </root>
