@@ -6,7 +6,7 @@
     <ProjectGuid>{8D3C38AA-AB48-441F-8939-867A004633F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OnionMasterTest</RootNamespace>
+    <RootNamespace>OnionMaster</RootNamespace>
     <AssemblyName>OnionMasterTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -54,15 +54,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GameObjectTestExtensions.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RenderInfoTestExtensions.cs" />
     <Compile Include="SessionDataConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OnionMaster\AdaptorLayer\AdaptorLayer.csproj">
+      <Project>{b1ddd7c5-3449-4908-955c-e41aa25e71bb}</Project>
+      <Name>AdaptorLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnionMaster\EntityLayer\EntityLayer.csproj">
       <Project>{92d72342-1638-44ef-99e7-3465efbf49e1}</Project>
       <Name>EntityLayer</Name>
@@ -70,6 +76,10 @@
     <ProjectReference Include="..\OnionMaster\OnionMaster.csproj">
       <Project>{2f3ecd36-ab55-494d-8677-b14a5320bcdc}</Project>
       <Name>OnionMaster</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnionMaster\UseCaseLayer\UseCaseLayer.csproj">
+      <Project>{629c5e8f-4357-46c2-ae67-f5b45f3886ed}</Project>
+      <Name>UseCaseLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -2,9 +2,14 @@
     {
         "controllable": {
             "moveup": 1,
-            "movedown": 2,
-            "moveright": 3,
-            "moveleft": 4
+            "movedown": 1,
+            "moveright": 1,
+            "moveleft": 1
+        },
+        "positional": {
+            "x": 5,
+            "y": 6,
+            "z": 0
         }
     }
 ]

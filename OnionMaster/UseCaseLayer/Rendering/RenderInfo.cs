@@ -35,5 +35,33 @@ namespace UseCaseLayer.Rendering
             renderable.TileWidth,
             renderable.TileHeight)
         { }
+
+        private bool Equals(RenderInfo other)
+        {
+            return other != null &&
+                ScreenX == other.ScreenX &&
+                ScreenY == other.ScreenY &&
+                ScreenLayer == other.ScreenLayer &&
+                TileSetId == other.TileSetId &&
+                TileSetX == other.TileSetX &&
+                TileSetY == other.TileSetY &&
+                TileWidth == other.TileWidth &&
+                TileHeight == other.TileHeight;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && Equals(obj as RenderInfo);
+        }
+
+        public override int GetHashCode()
+        {
+            return ScreenX ^ ScreenY ^ ScreenLayer ^ TileSetId ^ TileSetX ^ TileSetY ^ TileWidth ^ TileHeight;
+        }
+
+        public override string ToString()
+        {
+            return $"Screen: {ScreenX}, {ScreenY}, {ScreenLayer} Tile: {TileSetId}@{TileSetX}, {TileSetY} {TileWidth}x{TileHeight}";
+        }
     }
 }
