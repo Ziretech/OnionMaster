@@ -1,0 +1,10 @@
+﻿[
+    {
+        "controllable": {
+            "moveup": 1,
+            "movedown": 2,
+            "moveright": 3,
+            "moveleft": 4
+        }
+    }
+]
