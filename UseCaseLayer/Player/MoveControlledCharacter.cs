@@ -23,11 +23,6 @@ namespace UseCaseLayer.Player
             _moveable.ForEach(o => o.Positional.Y += o.Controllable.MoveUp);
         }
 
-        public void MoveUp_()
-        {
-            _moveable.ForEach(o => o.Positional.Y += o.Controllable.MoveUp);
-        }
-
         public void MoveDown()
         {
             _moveable.ForEach(o => o.Positional.Y -= o.Controllable.MoveDown);
