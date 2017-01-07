@@ -4,6 +4,7 @@ using System.Drawing;
 using OpenTK;
 using AdaptorLayer;
 using OnionMaster.Properties;
+using EntityLayer;
 
 namespace OnionMaster
 {
@@ -15,7 +16,8 @@ namespace OnionMaster
             var tilesPath = Settings.Default.ResourceFolder + Settings.Default.TileFilename;            
             var gameWindow = getGameWindow();
             var sessionData = File.ReadAllText(sessionDataPath);
-            var session = new Session(SessionDataConverter.Convert(sessionData), new PlayerInteraction(gameWindow.Keyboard), new UseCaseProvider());
+            var gameWorld = new GameWorld(SessionDataConverter.Convert(sessionData));
+            var session = new Session(gameWorld, new PlayerInteraction(gameWindow.Keyboard), new UseCaseProvider());
             var window = new Window(session, new List<Bitmap> { new Bitmap(tilesPath) }, gameWindow, new GraphicWrapper());
             window.Show();
         }

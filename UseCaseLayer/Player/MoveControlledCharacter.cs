@@ -1,16 +1,21 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using EntityLayer;
+using System;
 
 namespace UseCaseLayer.Player
 {
     public class MoveControlledCharacter : IMoveControlledCharacter
     {
-        private List<GameObject> _moveable;
+        private readonly List<GameObject> _moveable;
 
-        public MoveControlledCharacter(List<GameObject> gameObjects)
+        public MoveControlledCharacter(GameWorld gameWorld)
         {
-            _moveable = gameObjects.Where(o => IsMovable(o)).ToList();
+            if(gameWorld == null)
+            {
+                throw new ArgumentNullException("GameWorld must not be null");
+            }
+            _moveable = gameWorld.GetObjects().Where(o => IsMovable(o)).ToList();
         }
 
         public void MoveUp()

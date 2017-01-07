@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EntityLayer;
 using System.Linq;
+using System;
 
 namespace UseCaseLayer.Rendering
 {
@@ -12,7 +13,7 @@ namespace UseCaseLayer.Rendering
         {
             if(world == null)
             {
-                throw new System.ArgumentNullException("GameWorld must not be null");
+                throw new ArgumentNullException("GameWorld must not be null");
             }
             _renderable = world.GetObjects().Where(o => IsRenderable(o)).ToList();
         }

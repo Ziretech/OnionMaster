@@ -16,12 +16,12 @@ namespace AdaptorLayer
             ShowAllRenderableObjectsMock = new ShowAllRenderableObjectsMock();
         }
 
-        public IMoveControlledCharacter GetMoveControlledCharacter(List<GameObject> _gameObjects)
+        public IMoveControlledCharacter GetMoveControlledCharacter(GameWorld gameWorld)
         {
             return MoveControlledCharacterMock;
         }
 
-        public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameObjects)
+        public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld)
         {
             return ShowAllRenderableObjectsMock;
         }

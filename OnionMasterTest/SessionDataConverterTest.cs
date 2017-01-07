@@ -17,15 +17,16 @@ namespace OnionMaster
         public void Should_create_object_that_can_be_controlled_by_the_player()
         {
             var sessionData = SessionDataConverter.Convert(ReadResourceFile("controllableObject.json"));
+            var gameWorld = new GameWorld(sessionData);
             var theObject = sessionData.First();
             theObject.IsAt(5, 6).OnLayer(0);
-            new MoveControlledCharacter(sessionData).MoveUp();
+            new MoveControlledCharacter(gameWorld).MoveUp();
             theObject.IsAt(5, 7);
-            new MoveControlledCharacter(sessionData).MoveRight();
+            new MoveControlledCharacter(gameWorld).MoveRight();
             theObject.IsAt(6, 7);
-            new MoveControlledCharacter(sessionData).MoveDown();
+            new MoveControlledCharacter(gameWorld).MoveDown();
             theObject.IsAt(6, 6);
-            new MoveControlledCharacter(sessionData).MoveLeft();
+            new MoveControlledCharacter(gameWorld).MoveLeft();
             theObject.IsAt(5, 6);
         }
 

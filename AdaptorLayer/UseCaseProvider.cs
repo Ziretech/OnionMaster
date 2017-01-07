@@ -8,9 +8,9 @@ namespace AdaptorLayer
 {
     public class UseCaseProvider : IUseCaseProvider
     {
-        public IMoveControlledCharacter GetMoveControlledCharacter(List<GameObject> gameObjects)
+        public IMoveControlledCharacter GetMoveControlledCharacter(GameWorld gameWorld)
         {
-            return new MoveControlledCharacter(gameObjects);
+            return new MoveControlledCharacter(gameWorld);
         }
 
         public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld)

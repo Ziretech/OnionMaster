@@ -11,9 +11,9 @@ namespace AdaptorLayer
         private readonly IInput _input;
         private readonly IUseCaseProvider _useCases;
 
-        public Session(List<GameObject> data, IInput input, IUseCaseProvider useCases)
+        public Session(GameWorld gameWorld, IInput input, IUseCaseProvider useCases)
         {
-            _gameWorld = new GameWorld(data);
+            _gameWorld = gameWorld;
             _input = input;
             _useCases = useCases;
         }
@@ -31,19 +31,19 @@ namespace AdaptorLayer
             }
             if (_input.IsMoveUpPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveUp();
+                _useCases.GetMoveControlledCharacter(_gameWorld).MoveUp();
             }
             if (_input.IsMoveDownPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveDown();
+                _useCases.GetMoveControlledCharacter(_gameWorld).MoveDown();
             }
             if (_input.IsMoveRightPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveRight();
+                _useCases.GetMoveControlledCharacter(_gameWorld).MoveRight();
             }
             if (_input.IsMoveLeftPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveLeft();
+                _useCases.GetMoveControlledCharacter(_gameWorld).MoveLeft();
             }
         }
     }
