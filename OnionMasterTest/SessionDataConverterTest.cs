@@ -5,6 +5,7 @@ using System.Reflection;
 using UseCaseLayer.Rendering;
 using System.Linq;
 using UseCaseLayer.Player;
+using EntityLayer;
 
 namespace OnionMaster
 {
@@ -31,7 +32,7 @@ namespace OnionMaster
         [Test]
         public void Should_create_object_that_is_shown_on_screen()
         {
-            var sessionData = SessionDataConverter.Convert(ReadResourceFile("renderableObject.json"));            
+            var sessionData = new GameWorld(SessionDataConverter.Convert(ReadResourceFile("renderableObject.json")));
             var renderInfo = new ShowAllRenderableObjects(sessionData).Render().First();
             renderInfo.WillBeDrawnAtScreenCoordinates(1, 2).AtLayer(3).CutFromTileSet(0).StartingAt(13, 17).WithSize(32, 64);
         }

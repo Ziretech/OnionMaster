@@ -8,6 +8,6 @@ namespace AdaptorLayer
     public interface IUseCaseProvider
     {
         IMoveControlledCharacter GetMoveControlledCharacter(List<GameObject> _gameObjects);
-        IShowAllRenderableObjects GetShowAllRenderableObjects(List<GameObject> _gameObjects);
+        IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld);
     }
 }

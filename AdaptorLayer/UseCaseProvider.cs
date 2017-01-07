@@ -13,9 +13,9 @@ namespace AdaptorLayer
             return new MoveControlledCharacter(gameObjects);
         }
 
-        public IShowAllRenderableObjects GetShowAllRenderableObjects(List<GameObject> gameObjects)
+        public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld)
         {
-            return new ShowAllRenderableObjects(gameObjects);
+            return new ShowAllRenderableObjects(gameWorld);
         }
     }
 }

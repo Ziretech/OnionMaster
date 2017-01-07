@@ -12,15 +12,15 @@ namespace UseCaseLayer.Rendering
         [Test]
         public void Should_find_render_info_from_object_that_can_be_rendered()
         {
-            var objects = new List<GameObject> {
+            var world = new GameWorld(new List<GameObject> {
                 new GameObject
                 {
                     Renderable = new Renderable(0, 24, 17, 32, 64),
                     Positional = new Positional(1, 2, 3)
                 }
-            };
+            });
 
-            var renderInfos = new ShowAllRenderableObjects(objects).Render();
+            var renderInfos = new ShowAllRenderableObjects(world).Render();
             Assert.That(renderInfos.Count, Is.EqualTo(1));
             var info = renderInfos.First();
             Assert.That(renderInfos.First().TileSetId, Is.EqualTo(0));
@@ -37,41 +37,43 @@ namespace UseCaseLayer.Rendering
         [Test]
         public void Should_not_find_any_render_info_from_not_renderable_object()
         {
-            var objects = new List<GameObject> {
+            var world = new GameWorld(new List<GameObject> {
                 new GameObject
                 {
                     Renderable = null,
                     Positional = new Positional(1, 2, 3)
                 }
-            };
-            Assert.That(new ShowAllRenderableObjects(objects).Render(), Is.Empty);
+            });
+
+            Assert.That(new ShowAllRenderableObjects(world).Render(), Is.Empty);
         }
 
         [Test]
         public void Should_not_find_any_render_info_from_renderable_objects_without_position()
         {
-            var objects = new List<GameObject> {
+            var world = new GameWorld(new List<GameObject> {
                 new GameObject
                 {
                     Renderable = new Renderable(0, 11, 54, 12, 14),
                     Positional = null
                 }
-            };
-            Assert.That(new ShowAllRenderableObjects(objects).Render(), Is.Empty);
+            });
+            Assert.That(new ShowAllRenderableObjects(world).Render(), Is.Empty);
         }
 
         [Test]
         public void Should_not_find_render_info_when_there_is_no_objects()
         {
-            var objects = new List<GameObject>();
-            var renderInfo = new ShowAllRenderableObjects(objects).Render();
+            var world = new GameWorld(new List<GameObject>());
+            var renderInfo = new ShowAllRenderableObjects(world).Render();
             Assert.That(renderInfo, Is.Empty);
         }
 
         [Test]
         public void Should_throw_ArgumentNullException_when_object_list_is_null()
         {
-            Assert.Throws<ArgumentNullException>(() => new ShowAllRenderableObjects(null));
+            var exception = Assert.Throws<ArgumentNullException>(() => new ShowAllRenderableObjects(null));
+            Assert.That(exception.Message, Does.Contain("GameWorld must not be null"));
         }
     }
 }

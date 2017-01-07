@@ -21,7 +21,7 @@ namespace AdaptorLayer
             return MoveControlledCharacterMock;
         }
 
-        public IShowAllRenderableObjects GetShowAllRenderableObjects(List<GameObject> _gameObjects)
+        public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameObjects)
         {
             return ShowAllRenderableObjectsMock;
         }

@@ -20,7 +20,7 @@ namespace AdaptorLayer
 
         public IEnumerable<DrawCommand> DrawScreen()
         {
-            return _useCases.GetShowAllRenderableObjects(_gameWorld.GetObjects()).Render().OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
+            return _useCases.GetShowAllRenderableObjects(_gameWorld).Render().OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
         }
 
         public void Update()

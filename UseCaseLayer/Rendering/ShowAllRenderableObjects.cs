@@ -8,9 +8,13 @@ namespace UseCaseLayer.Rendering
     {
         private readonly List<GameObject> _renderable;
 
-        public ShowAllRenderableObjects(List<GameObject> gameObjects)
+        public ShowAllRenderableObjects(GameWorld world)
         {
-            _renderable = gameObjects.Where(o => IsRenderable(o)).ToList();
+            if(world == null)
+            {
+                throw new System.ArgumentNullException("GameWorld must not be null");
+            }
+            _renderable = world.GetObjects().Where(o => IsRenderable(o)).ToList();
         }
 
         public IEnumerable<RenderInfo> Render()
