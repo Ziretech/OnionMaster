@@ -7,20 +7,20 @@ namespace AdaptorLayer
     public class Session : ISession
     {
         public bool ExitGame { get; set; }
-        private readonly List<GameObject> _gameObjects;
+        private readonly GameWorld _gameWorld;
         private readonly IInput _input;
         private readonly IUseCaseProvider _useCases;
 
         public Session(List<GameObject> data, IInput input, IUseCaseProvider useCases)
         {
-            _gameObjects = data;
+            _gameWorld = new GameWorld(data);
             _input = input;
             _useCases = useCases;
         }
 
         public IEnumerable<DrawCommand> DrawScreen()
         {
-            return _useCases.GetShowAllRenderableObjects(_gameObjects).Render().OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
+            return _useCases.GetShowAllRenderableObjects(_gameWorld.GetObjects()).Render().OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
         }
 
         public void Update()
@@ -31,19 +31,19 @@ namespace AdaptorLayer
             }
             if (_input.IsMoveUpPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameObjects).MoveUp();
+                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveUp();
             }
             if (_input.IsMoveDownPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameObjects).MoveDown();
+                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveDown();
             }
             if (_input.IsMoveRightPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameObjects).MoveRight();
+                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveRight();
             }
             if (_input.IsMoveLeftPressed())
             {
-                _useCases.GetMoveControlledCharacter(_gameObjects).MoveLeft();
+                _useCases.GetMoveControlledCharacter(_gameWorld.GetObjects()).MoveLeft();
             }
         }
     }
