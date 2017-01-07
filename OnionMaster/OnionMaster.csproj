@@ -122,15 +122,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AdaptorLayer\AdaptorLayer.csproj">
+    <ProjectReference Include="..\AdaptorLayer\AdaptorLayer.csproj">
       <Project>{b1ddd7c5-3449-4908-955c-e41aa25e71bb}</Project>
       <Name>AdaptorLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="EntityLayer\EntityLayer.csproj">
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{92d72342-1638-44ef-99e7-3465efbf49e1}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="UseCaseLayer\UseCaseLayer.csproj">
+    <ProjectReference Include="..\UseCaseLayer\UseCaseLayer.csproj">
       <Project>{629c5e8f-4357-46c2-ae67-f5b45f3886ed}</Project>
       <Name>UseCaseLayer</Name>
     </ProjectReference>

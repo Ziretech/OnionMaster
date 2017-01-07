@@ -5,15 +5,15 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMaster", "OnionMaster.csproj", "{2F3ECD36-AB55-494D-8677-B14A5320BCDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayer", "AdaptorLayer\AdaptorLayer.csproj", "{B1DDD7C5-3449-4908-955C-E41AA25E71BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayer", "..\AdaptorLayer\AdaptorLayer.csproj", "{B1DDD7C5-3449-4908-955C-E41AA25E71BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCaseLayer", "UseCaseLayer\UseCaseLayer.csproj", "{629C5E8F-4357-46C2-AE67-F5B45F3886ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCaseLayer", "..\UseCaseLayer\UseCaseLayer.csproj", "{629C5E8F-4357-46C2-AE67-F5B45F3886ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{92D72342-1638-44EF-99E7-3465EFBF49E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayer", "..\EntityLayer\EntityLayer.csproj", "{92D72342-1638-44EF-99E7-3465EFBF49E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCaseLayerTest", "UseCaseLayerTest\UseCaseLayerTest.csproj", "{3CDF3C31-B75C-43F8-85DF-A69BC7335903}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCaseLayerTest", "..\UseCaseLayerTest\UseCaseLayerTest.csproj", "{3CDF3C31-B75C-43F8-85DF-A69BC7335903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayerTest", "AdaptorLayerTest\AdaptorLayerTest.csproj", "{107E258B-3E02-4282-8A2A-3075FB753B2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayerTest", "..\AdaptorLayerTest\AdaptorLayerTest.csproj", "{107E258B-3E02-4282-8A2A-3075FB753B2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMasterTest", "..\OnionMasterTest\OnionMasterTest.csproj", "{8D3C38AA-AB48-441F-8939-867A004633F9}"
 EndProject
