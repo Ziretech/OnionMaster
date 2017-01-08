@@ -4,7 +4,7 @@ using UseCaseLayer.Rendering;
 
 namespace AdaptorLayer
 {
-    public class ShowAllRenderableObjectsMock : IShowAllRenderableObjects
+    public class ShowAllRenderableObjectsMock : IRenderable
     {
         public IEnumerable<RenderInfo> RenderInfos { get; set; }        
 

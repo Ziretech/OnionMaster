@@ -8,17 +8,17 @@ namespace AdaptorLayer
 {
     public class UseCaseProvider : IUseCaseProvider
     {
-        public IMoveControlledCharacter GetMoveControlledCharacter(GameWorld gameWorld)
+        public IMovable GetMoveControlledCharacter(GameWorld gameWorld)
         {
             return new MoveControlledCharacter(gameWorld);
         }
 
-        public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld)
+        public IRenderable GetShowAllRenderableObjects(GameWorld gameWorld)
         {
             return new ShowAllRenderableObjects(gameWorld);
         }
 
-        public IShowTiledAreaObjects GetShowTiledAreaObjects(GameWorld gameWorld)
+        public IRenderable GetShowTiledAreaObjects(GameWorld gameWorld)
         {
             return new ShowTiledAreaObjects(gameWorld);
         }

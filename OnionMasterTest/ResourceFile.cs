@@ -6,7 +6,7 @@ namespace OnionMaster
 {
     class ResourceFile
     {
-        public static string ReadResourceFile(string filename)
+        public static string Read(string filename)
         {
             var resourceName = "OnionMaster.Resources." + filename;
             try

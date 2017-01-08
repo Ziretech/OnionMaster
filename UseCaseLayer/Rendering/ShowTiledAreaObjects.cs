@@ -3,7 +3,7 @@ using EntityLayer;
 
 namespace UseCaseLayer.Rendering
 {
-    public class ShowTiledAreaObjects : IShowTiledAreaObjects
+    public class ShowTiledAreaObjects : IRenderable
     {
         private GameWorld _world;
 

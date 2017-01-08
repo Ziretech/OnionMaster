@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptorLayerTest", "..\Adap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionMasterTest", "..\OnionMasterTest\OnionMasterTest.csproj", "{8D3C38AA-AB48-441F-8939-867A004633F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayerTest", "..\EntityLayerTest\EntityLayerTest.csproj", "{59E79F95-0C13-4207-A83E-16B9BB3B2937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{8D3C38AA-AB48-441F-8939-867A004633F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D3C38AA-AB48-441F-8939-867A004633F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D3C38AA-AB48-441F-8939-867A004633F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E79F95-0C13-4207-A83E-16B9BB3B2937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E79F95-0C13-4207-A83E-16B9BB3B2937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E79F95-0C13-4207-A83E-16B9BB3B2937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E79F95-0C13-4207-A83E-16B9BB3B2937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

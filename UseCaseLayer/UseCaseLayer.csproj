@@ -40,11 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\IMoveControlledCharacter.cs" />
+    <Compile Include="Player\IMovable.cs" />
     <Compile Include="Player\MoveControlledCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rendering\IShowAllRenderableObjects.cs" />
-    <Compile Include="Rendering\IShowTiledAreaObjects.cs" />
+    <Compile Include="Rendering\IRenderable.cs" />
     <Compile Include="Rendering\RenderInfo.cs" />
     <Compile Include="Rendering\ShowAllRenderableObjects.cs" />
     <Compile Include="Rendering\ShowTiledAreaObjects.cs" />

@@ -15,6 +15,20 @@ namespace OnionMaster
     public class SessionDataConverterTest
     {
         [Test]
+        public void Should_deserialize_json_for_animationObject()
+        {
+            var sessionData = SessionDataConverter.Convert(ResourceFile.Read("animationObject.json"));
+            Assert.That(sessionData.Count, Is.EqualTo(1));
+            var animation = sessionData.First().Animation;
+
+            Assert.That(animation.Count, Is.EqualTo(2));
+            Assert.That(animation.ElementAt(0).TileSetCoordinate, Is.EqualTo(new TileSetCoordinate(10, 11, 12)));
+            Assert.That(animation.ElementAt(0).TileDimension, Is.EqualTo(new TileDimension(13, 14)));
+            Assert.That(animation.ElementAt(1).TileSetCoordinate, Is.EqualTo(new TileSetCoordinate(20, 21, 22)));
+            Assert.That(animation.ElementAt(1).TileDimension, Is.EqualTo(new TileDimension(23, 24)));
+        }
+
+        [Test]
         public void Should_create_object_rendered_as_an_area_of_equal_sized_tiles_side_by_side()
         {
             var useCaseProvider = new UseCaseProvider();

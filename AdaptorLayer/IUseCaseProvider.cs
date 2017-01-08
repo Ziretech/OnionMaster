@@ -7,8 +7,8 @@ namespace AdaptorLayer
 {
     public interface IUseCaseProvider
     {
-        IMoveControlledCharacter GetMoveControlledCharacter(GameWorld gameWorld);
-        IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld);
-        IShowTiledAreaObjects GetShowTiledAreaObjects(GameWorld gameWorld);
+        IMovable GetMoveControlledCharacter(GameWorld gameWorld);
+        IRenderable GetShowAllRenderableObjects(GameWorld gameWorld);
+        IRenderable GetShowTiledAreaObjects(GameWorld gameWorld);
     }
 }

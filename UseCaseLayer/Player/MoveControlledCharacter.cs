@@ -5,7 +5,7 @@ using System;
 
 namespace UseCaseLayer.Player
 {
-    public class MoveControlledCharacter : IMoveControlledCharacter
+    public class MoveControlledCharacter : IMovable
     {
         private readonly List<GameObject> _moveable;
 

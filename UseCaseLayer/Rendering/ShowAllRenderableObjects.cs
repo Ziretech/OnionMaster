@@ -5,7 +5,7 @@ using System;
 
 namespace UseCaseLayer.Rendering
 {
-    public class ShowAllRenderableObjects : IShowAllRenderableObjects
+    public class ShowAllRenderableObjects : IRenderable
     {
         private readonly GameWorld _gameWorld;
 

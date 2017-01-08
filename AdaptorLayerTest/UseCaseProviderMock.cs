@@ -19,17 +19,17 @@ namespace AdaptorLayer
             ShowTiledAreaObjectsMock = new ShowTiledAreaObjectsMock();
         }
 
-        public IMoveControlledCharacter GetMoveControlledCharacter(GameWorld gameWorld)
+        public IMovable GetMoveControlledCharacter(GameWorld gameWorld)
         {
             return MoveControlledCharacterMock;
         }
 
-        public IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld)
+        public IRenderable GetShowAllRenderableObjects(GameWorld gameWorld)
         {
             return ShowAllRenderableObjectsMock;
         }
 
-        public IShowTiledAreaObjects GetShowTiledAreaObjects(GameWorld gameWorld)
+        public IRenderable GetShowTiledAreaObjects(GameWorld gameWorld)
         {
             return ShowTiledAreaObjectsMock;
         }

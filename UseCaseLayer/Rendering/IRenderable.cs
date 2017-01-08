@@ -2,7 +2,7 @@
 
 namespace UseCaseLayer.Rendering
 {
-    public interface IShowAllRenderableObjects
+    public interface IRenderable
     {
         IEnumerable<RenderInfo> Render();
     }

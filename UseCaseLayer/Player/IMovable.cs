@@ -1,6 +1,6 @@
 ﻿namespace UseCaseLayer.Player
 {
-    public interface IMoveControlledCharacter
+    public interface IMovable
     {
         void MoveUp();
         void MoveDown();

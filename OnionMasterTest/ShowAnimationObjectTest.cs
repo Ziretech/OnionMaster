@@ -1,11 +1,7 @@
 ﻿using AdaptorLayer;
 using NUnit.Framework;
 using EntityLayer;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnionMaster
 {
@@ -16,7 +12,7 @@ namespace OnionMaster
         public void Animated_object_is_displayed()
         {
 
-            GameWorld gameWorld = new GameWorld(SessionDataConverter.Convert(ResourceFile.ReadResourceFile("animationObject.json")));
+            GameWorld gameWorld = new GameWorld(SessionDataConverter.Convert(ResourceFile.Read("animationObject.json")));
             InputMock input = new InputMock();
             ISession session = new Session(gameWorld, input, new UseCaseProvider());
 

@@ -5,7 +5,7 @@ using UseCaseLayer.Rendering;
 
 namespace AdaptorLayer
 {
-    internal class ShowTiledAreaObjectsMock : IShowTiledAreaObjects
+    internal class ShowTiledAreaObjectsMock : IRenderable
     {
         public IEnumerable<RenderInfo> RenderInfos { get; set; }
 
