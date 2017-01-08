@@ -18,7 +18,7 @@ namespace UseCaseLayer.Rendering
             {
                 if (IsRenderable(gameObject))
                 {
-                    foreach(var info in GetRenderInfo(gameObject))
+                    foreach(var info in GetRenderInfo(gameObject, gameObject.Position, gameObject.TiledArea))
                     {
                         yield return info;
                     }
@@ -26,20 +26,27 @@ namespace UseCaseLayer.Rendering
             }
         }
 
-        private IEnumerable<RenderInfo> GetRenderInfo(GameObject gameObject)
+        private IEnumerable<RenderInfo> GetRenderInfo(GameObject gameObject, Position position, TiledArea area)
         {
-            var position = gameObject.Position;
-            var dimension = gameObject.TiledArea.TileDimension;
+            var dimension = area.TileDimension;
             var currentIndex = 0;
-            foreach(var index in gameObject.TiledArea.Indices)
+            foreach(var index in area.Indices)
             {
-                var coordinates = gameObject.TiledArea.TileSetCoordinates[index];
-                
-                var newPosition = new Position(position.X + (currentIndex % gameObject.TiledArea.AreaWidth) * dimension.Width, position.Y + (currentIndex / gameObject.TiledArea.AreaWidth) * dimension.Height, position.Z);
-                yield return new RenderInfo(newPosition, coordinates, dimension);
+                var x = currentIndex % area.AreaWidth;
+                var y = currentIndex / area.AreaWidth;
+                var nextPosition = NextPosition(position, x, y, dimension);
+                yield return new RenderInfo(nextPosition, area.TileSetCoordinates[index], dimension);
                 currentIndex++;
             }
             
+        }
+
+        private Position NextPosition(Position areaPosition, int x, int y, TileDimension dimension)
+        {
+            return new Position(
+                areaPosition.X + x * dimension.Width, 
+                areaPosition.Y + y * dimension.Height,
+                areaPosition.Z);
         }
 
         private bool IsRenderable(GameObject gameObject)
