@@ -4,11 +4,11 @@ using UseCaseLayer.Rendering;
 
 namespace AdaptorLayer
 {
-    public class ShowAllRenderableObjectsMock : IRenderable
+    public class RenderableMock : IRenderable
     {
         public IEnumerable<RenderInfo> RenderInfos { get; set; }        
 
-        public ShowAllRenderableObjectsMock()
+        public RenderableMock()
         {
             RenderInfos = Enumerable.Empty<RenderInfo>();
         }

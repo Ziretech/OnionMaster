@@ -2,14 +2,14 @@
 
 namespace AdaptorLayer
 {
-    internal class MoveControlledCharacterMock : IMovable
+    internal class MovableMock : IMovable
     {
         public int MoveUpCalled { get; private set; }
         public int MoveDownCalled { get; private set; }
         public int MoveRightCalled { get; private set; }
         public int MoveLeftCalled { get; private set; }
 
-        public MoveControlledCharacterMock() { }
+        public MovableMock() { }
 
         public void MoveUp()
         {

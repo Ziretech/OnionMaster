@@ -8,15 +8,15 @@ namespace AdaptorLayer
 {
     internal class UseCaseProviderMock : IUseCaseProvider
     {
-        public MoveControlledCharacterMock MoveControlledCharacterMock { get; set; }
-        public ShowAllRenderableObjectsMock ShowAllRenderableObjectsMock { get; set; }
-        public ShowTiledAreaObjectsMock ShowTiledAreaObjectsMock { get; set; }
+        public MovableMock MoveControlledCharacterMock { get; set; }
+        public RenderableMock ShowAllRenderableObjectsMock { get; set; }
+        public RenderableMock ShowTiledAreaObjectsMock { get; set; }
 
         public UseCaseProviderMock()
         {
-            MoveControlledCharacterMock = new MoveControlledCharacterMock();
-            ShowAllRenderableObjectsMock = new ShowAllRenderableObjectsMock();
-            ShowTiledAreaObjectsMock = new ShowTiledAreaObjectsMock();
+            MoveControlledCharacterMock = new MovableMock();
+            ShowAllRenderableObjectsMock = new RenderableMock();
+            ShowTiledAreaObjectsMock = new RenderableMock();
         }
 
         public IMovable GetMoveControlledCharacter(GameWorld gameWorld)
