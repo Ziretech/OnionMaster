@@ -18,7 +18,7 @@ namespace UseCaseLayer.Rendering
             {
                 if (IsRenderable(gameObject))
                 {
-                    foreach(var info in GetRenderInfo(gameObject, gameObject.Position, gameObject.TiledArea))
+                    foreach(var info in GetRenderInfo(gameObject.Position, gameObject.TiledArea))
                     {
                         yield return info;
                     }
@@ -26,7 +26,7 @@ namespace UseCaseLayer.Rendering
             }
         }
 
-        private IEnumerable<RenderInfo> GetRenderInfo(GameObject gameObject, Position position, TiledArea area)
+        private IEnumerable<RenderInfo> GetRenderInfo(Position position, TiledArea area)
         {
             var dimension = area.TileDimension;
             var currentIndex = 0;
