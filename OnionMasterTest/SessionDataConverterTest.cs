@@ -6,6 +6,7 @@ using UseCaseLayer.Rendering;
 using System.Linq;
 using UseCaseLayer.Player;
 using EntityLayer;
+using AdaptorLayer;
 
 namespace OnionMaster
 {
@@ -16,9 +17,14 @@ namespace OnionMaster
         [Test]
         public void Should_create_object_rendered_as_an_area_of_equal_sized_tiles_side_by_side()
         {
+            var useCaseProvider = new UseCaseProvider();
             var sessionData = SessionDataConverter.Convert(ReadResourceFile("tiledAreaObject.json"));
-            var renderInfos = new ShowAllRenderableObjects(new GameWorld(sessionData)).Render().ToList();
+            var renderInfos = useCaseProvider.GetShowTiledAreaObjects(new GameWorld(sessionData)).Render();
             Assert.That(renderInfos.Count, Is.EqualTo(4));
+            Assert.That(renderInfos.ElementAt(0), Is.EqualTo(new RenderInfo(128, 133, 0, 0, 12, 14, 32, 64)));
+            Assert.That(renderInfos.ElementAt(1), Is.EqualTo(new RenderInfo(128+32, 133, 0, 1, 11, 20, 32, 64)));
+            Assert.That(renderInfos.ElementAt(2), Is.EqualTo(new RenderInfo(128, 133+64, 0, 1, 11, 20, 32, 64)));
+            Assert.That(renderInfos.ElementAt(3), Is.EqualTo(new RenderInfo(128+32, 133+64, 0, 0, 12, 14, 32, 64)));
         }
 
         [Test]

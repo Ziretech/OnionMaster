@@ -7,14 +7,14 @@
             },
             "tilesetcoordinates": [
                 {
-                    "tilesetid": 0,
-                    "tilesetx": 12,
-                    "tilesety": 14
+                    "id": 0,
+                    "x": 12,
+                    "y": 14
                 },
                 {
-                    "tilesetid": 1,
-                    "tilesetx": 11,
-                    "tilesety": 20
+                    "id": 1,
+                    "x": 11,
+                    "y": 20
                 }
             ],
             "areawidth": 2,
