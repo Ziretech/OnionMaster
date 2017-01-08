@@ -75,6 +75,16 @@ namespace AdaptorLayer
         }
 
         [Test]
+        public void Should_show_all_tiled_area_objects_when_draw_to_screen()
+        {
+            _useCasesMock.ShowTiledAreaObjectsMock.RenderInfos = new List<RenderInfo>() { new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8) };
+            var session = new Session(null, new InputMock(), _useCasesMock);
+            var commands = session.DrawScreen();
+            Assert.That(commands.Count, Is.EqualTo(1));
+            Assert.That(commands.ElementAt(0), Is.EqualTo(new DrawCommand(1, 2, 4, 5, 6, 7, 8)));
+        }
+
+        [Test]
         public void Should_sort_renderable_objects_by_layer()
         {
             _useCasesMock.ShowAllRenderableObjectsMock.RenderInfos = new List<RenderInfo>() {

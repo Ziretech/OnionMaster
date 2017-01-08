@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EntityLayer;
 using System.Linq;
+using UseCaseLayer.Rendering;
 
 namespace AdaptorLayer
 {
@@ -20,7 +21,18 @@ namespace AdaptorLayer
 
         public IEnumerable<DrawCommand> DrawScreen()
         {
-            return _useCases.GetShowAllRenderableObjects(_gameWorld).Render().OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
+            return ShowRenderableObject()
+                .Concat(ShowTiledAreaObjects())
+                .OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
+        }
+
+        private IEnumerable<RenderInfo> ShowRenderableObject()
+        {
+            return _useCases.GetShowAllRenderableObjects(_gameWorld).Render();
+        }
+        private IEnumerable<RenderInfo> ShowTiledAreaObjects()
+        {
+            return _useCases.GetShowTiledAreaObjects(_gameWorld).Render();
         }
 
         public void Update()
