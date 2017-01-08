@@ -1,4 +1,6 @@
-﻿namespace EntityLayer
+﻿using System.Collections.Generic;
+
+namespace EntityLayer
 {
     public class GameObject
     {
@@ -8,5 +10,6 @@
         public TiledArea TiledArea { get; set; }
         public TileSetCoordinate TileSetCoordinate { get; set; }
         public TileDimension TileDimension { get; set; }
+        public List<Frame> Animation { get; set; }
     }
 }
