@@ -52,8 +52,8 @@ namespace UseCaseLayer.Rendering
             });
             var renderInfos = new ShowTiledAreaObjects(world).Render();
             Assert.That(renderInfos.Count, Is.EqualTo(2));
-            Assert.That(renderInfos.ToList()[0], Is.EqualTo(new RenderInfo(5, 6, 7, 0, 3, 4, 1, 2)));
-            Assert.That(renderInfos.ToList()[1], Is.EqualTo(new RenderInfo(6, 6, 7, 0, 3, 4, 1, 2)));
+            Assert.That(renderInfos.ElementAt(0), Is.EqualTo(new RenderInfo(5, 6, 7, 0, 3, 4, 1, 2)));
+            Assert.That(renderInfos.ElementAt(1), Is.EqualTo(new RenderInfo(6, 6, 7, 0, 3, 4, 1, 2)));
         }
 
         [Test]
@@ -76,6 +76,30 @@ namespace UseCaseLayer.Rendering
             });
             var renderInfos = new ShowTiledAreaObjects(world).Render();
             Assert.That(renderInfos.First(), Is.EqualTo(new RenderInfo(5, 6, 7, 4, 5, 6, 1, 2)));
+        }
+
+        [Test]
+        public void Should_generate_render_info_for_every_index()
+        {
+            var world = new GameWorld(new List<GameObject> {
+                new GameObject
+                {
+                    TiledArea = new TiledArea(
+                        new TileDimension(1, 2),
+                        new List<TileSetCoordinate>
+                        {
+                            new TileSetCoordinate(1, 2, 3),
+                            new TileSetCoordinate(4, 5, 6)
+                        },
+                        5,
+                        new List<int> { 1, 0 }),
+                    Position = new Position(5, 6, 7)
+                }
+            });
+            var renderInfos = new ShowTiledAreaObjects(world).Render();
+            Assert.That(renderInfos.Count, Is.EqualTo(2));
+            Assert.That(renderInfos.ElementAt(0), Is.EqualTo(new RenderInfo(5, 6, 7, 4, 5, 6, 1, 2)));
+            Assert.That(renderInfos.ElementAt(1), Is.EqualTo(new RenderInfo(5, 6, 7, 1, 2, 3, 1, 2)));
         }
 
         [Test]

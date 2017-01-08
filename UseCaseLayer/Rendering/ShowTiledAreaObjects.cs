@@ -34,9 +34,12 @@ namespace UseCaseLayer.Rendering
         {
             var position = gameObject.Position;
             var dimension = gameObject.TiledArea.TileDimension;
-            var indices = gameObject.TiledArea.Indices;
-            var coordinates = gameObject.TiledArea.TileSetCoordinates[indices.First()];            
-            yield return new RenderInfo(position, coordinates, dimension);
+            foreach(var index in gameObject.TiledArea.Indices)
+            {
+                var coordinates = gameObject.TiledArea.TileSetCoordinates[index];
+                yield return new RenderInfo(position, coordinates, dimension);
+            }
+            
         }
 
         private bool IsRenderable(GameObject gameObject)
