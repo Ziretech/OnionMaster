@@ -55,6 +55,7 @@
     <Compile Include="SessionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShowAllRenderableObjectsMock.cs" />
+    <Compile Include="ShowTiledAreaObjectsMock.cs" />
     <Compile Include="UseCaseProviderMock.cs" />
   </ItemGroup>
   <ItemGroup>
