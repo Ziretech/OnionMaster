@@ -61,10 +61,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RenderInfoTestExtensions.cs" />
+    <Compile Include="ResourceFile.cs" />
     <Compile Include="SessionDataConverterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowAnimationObjectTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdaptorLayerTest\AdaptorLayerTest.csproj">
+      <Project>{107e258b-3e02-4282-8a2a-3075fb753b2a}</Project>
+      <Name>AdaptorLayerTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdaptorLayer\AdaptorLayer.csproj">
       <Project>{b1ddd7c5-3449-4908-955c-e41aa25e71bb}</Project>
       <Name>AdaptorLayer</Name>
@@ -90,6 +96,7 @@
     <EmbeddedResource Include="Resources\controllableObject.json" />
     <EmbeddedResource Include="Resources\renderableObject.json" />
     <EmbeddedResource Include="Resources\tiledAreaObject.json" />
+    <EmbeddedResource Include="Resources\animationObject.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

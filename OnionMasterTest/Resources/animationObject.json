@@ -1,0 +1,33 @@
+﻿[
+    {
+        "position": {
+            "x": 1,
+            "y": 2,
+            "z": 3
+        },
+        "animation": [
+            {
+                "tileSetCoordinate": {
+                    "id": 10,
+                    "x": 11,
+                    "y": 12
+                },
+                "tileDimension": {
+                    "width": 13,
+                    "height": 14
+                }
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 20,
+                    "x": 21,
+                    "y": 22
+                },
+                "tileDimension": {
+                    "width": 23,
+                    "height": 24
+                }
+            }
+        ]
+    }
+]

@@ -1,12 +1,12 @@
 ﻿namespace AdaptorLayer
 {
-    class InputMock : IInput
+    public class InputMock : IInput
     {
-        private readonly bool _down;
-        private readonly bool _escape;
-        private readonly bool _left;
-        private readonly bool _right;
-        private readonly bool _up;
+        public bool Down { get; set; }
+        public bool Escape { get; set; }
+        public bool Left { get; set; }
+        public bool Right { get; set; }
+        public bool Up { get; set; }
 
         public InputMock()
         {
@@ -14,36 +14,36 @@
 
         public InputMock(bool escape, bool up, bool down, bool right, bool left)
         {
-            _escape = escape;
-            _up = up;
-            _down = down;
-            _right = right;
-            _left = left;
+            Escape = escape;
+            Up = up;
+            Down = down;
+            Right = right;
+            Left = left;
         }
 
         public bool IsMoveDownPressed()
         {
-            return _down;
+            return Down;
         }
 
         public bool IsCloseApplicationPressed()
         {
-            return _escape;
+            return Escape;
         }
 
         public bool IsMoveLeftPressed()
         {
-            return _left;
+            return Left;
         }
 
         public bool IsMoveRightPressed()
         {
-            return _right;
+            return Right;
         }
 
         public bool IsMoveUpPressed()
         {
-            return _up;
+            return Up;
         }
     }
 }
