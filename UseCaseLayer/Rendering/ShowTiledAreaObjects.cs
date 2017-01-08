@@ -7,7 +7,7 @@ using EntityLayer;
 
 namespace UseCaseLayer.Rendering
 {
-    public class ShowTiledAreaObjects
+    public class ShowTiledAreaObjects : IShowTiledAreaObjects
     {
         private GameWorld _world;
 
@@ -34,10 +34,14 @@ namespace UseCaseLayer.Rendering
         {
             var position = gameObject.Position;
             var dimension = gameObject.TiledArea.TileDimension;
+            var currentIndex = 0;
             foreach(var index in gameObject.TiledArea.Indices)
             {
                 var coordinates = gameObject.TiledArea.TileSetCoordinates[index];
-                yield return new RenderInfo(position, coordinates, dimension);
+                
+                var newPosition = new Position(position.X + currentIndex * dimension.Width, position.Y, position.Z);
+                yield return new RenderInfo(newPosition, coordinates, dimension);
+                currentIndex++;
             }
             
         }

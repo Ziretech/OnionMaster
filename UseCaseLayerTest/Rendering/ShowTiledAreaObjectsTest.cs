@@ -6,7 +6,7 @@ using System.Linq;
 namespace UseCaseLayer.Rendering
 {
     [TestFixture]
-    public class ShowAllRenderableObjects_RenderTiledAreaTest
+    public class ShowTiledAreaObjectsTest
     {
         [Test]
         public void Should_find_1_render_info_from_a_1_tile_tiledArea()
@@ -85,7 +85,7 @@ namespace UseCaseLayer.Rendering
                 new GameObject
                 {
                     TiledArea = new TiledArea(
-                        new TileDimension(1, 2),
+                        new TileDimension(3, 2),
                         new List<TileSetCoordinate>
                         {
                             new TileSetCoordinate(1, 2, 3),
@@ -98,8 +98,8 @@ namespace UseCaseLayer.Rendering
             });
             var renderInfos = new ShowTiledAreaObjects(world).Render();
             Assert.That(renderInfos.Count, Is.EqualTo(2));
-            Assert.That(renderInfos.ElementAt(0), Is.EqualTo(new RenderInfo(5, 6, 7, 4, 5, 6, 1, 2)));
-            Assert.That(renderInfos.ElementAt(1), Is.EqualTo(new RenderInfo(5, 6, 7, 1, 2, 3, 1, 2)));
+            Assert.That(renderInfos.ElementAt(0), Is.EqualTo(new RenderInfo(5, 6, 7, 4, 5, 6, 3, 2)));
+            Assert.That(renderInfos.ElementAt(1), Is.EqualTo(new RenderInfo(8, 6, 7, 1, 2, 3, 3, 2)));
         }
 
         [Test]
