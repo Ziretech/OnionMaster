@@ -1,0 +1,34 @@
+﻿[
+    {
+        "tiledArea": {
+            "tiledimension": {
+                "width": 32,
+                "height": 64
+            },
+            "tilesetcoordinates": [
+                {
+                    "tilesetid": 0,
+                    "tilesetx": 12,
+                    "tilesety": 14
+                },
+                {
+                    "tilesetid": 1,
+                    "tilesetx": 11,
+                    "tilesety": 20
+                }
+            ],
+            "areawidth": 2,
+            "indices": [
+                0,
+                1,
+                1,
+                0
+            ]
+        },
+        "position": {
+            "x": 128,
+            "y": 133,
+            "z": 0
+        }
+    }
+]

@@ -25,16 +25,12 @@ namespace UseCaseLayer.Rendering
             TileHeight = tileHeight;
         }
 
-        public RenderInfo(Positional positional, Renderable renderable) : this(
-            positional.X,
-            positional.Y,
-            positional.Z,
-            renderable.TileSetId,
-            renderable.TileSetX,
-            renderable.TileSetY,
-            renderable.TileWidth,
-            renderable.TileHeight)
-        { }
+        public RenderInfo(Position positional, TileSetCoordinate tileSetCoordinate, TileDimension tileDimension)
+            : this(positional.X, positional.Y, positional.Z, 
+                  tileSetCoordinate.Id, tileSetCoordinate.X, tileSetCoordinate.Y, 
+                  tileDimension.Width, tileDimension.Height)
+        {
+        }
 
         private bool Equals(RenderInfo other)
         {

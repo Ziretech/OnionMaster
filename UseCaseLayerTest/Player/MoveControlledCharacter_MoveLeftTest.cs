@@ -13,7 +13,7 @@ namespace UseCaseLayer.Player
             return new GameObject()
             {
                 Controllable = moveLeft == null ? null : new Controllable(0, 0, 0, (int)moveLeft),
-                Positional = x == null ? null : new Positional((int)x, 0, 0)
+                Position = x == null ? null : new Position((int)x, 0, 0)
             };
         }
 
@@ -22,7 +22,7 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(5, 8) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveLeft();
-            Assert.That(gameObjects[0].Positional.X, Is.EqualTo(3));
+            Assert.That(gameObjects[0].Position.X, Is.EqualTo(3));
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(3, 3) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveLeft();
-            Assert.That(gameObjects[0].Positional.X, Is.EqualTo(0));
+            Assert.That(gameObjects[0].Position.X, Is.EqualTo(0));
         }
 
         [Test]
@@ -38,8 +38,8 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(3, 3), CreateGameObject(5, 20) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveLeft();
-            Assert.That(gameObjects[0].Positional.X, Is.EqualTo(0));
-            Assert.That(gameObjects[1].Positional.X, Is.EqualTo(15));
+            Assert.That(gameObjects[0].Position.X, Is.EqualTo(0));
+            Assert.That(gameObjects[1].Position.X, Is.EqualTo(15));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(null, 0), CreateGameObject(4, 5) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveLeft();
-            Assert.That(gameObjects[1].Positional.X, Is.EqualTo(1));
+            Assert.That(gameObjects[1].Position.X, Is.EqualTo(1));
         }
 
         [Test]

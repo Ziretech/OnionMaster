@@ -46,6 +46,7 @@
     <Compile Include="Rendering\IShowAllRenderableObjects.cs" />
     <Compile Include="Rendering\RenderInfo.cs" />
     <Compile Include="Rendering\ShowAllRenderableObjects.cs" />
+    <Compile Include="Rendering\ShowTiledAreaObjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">

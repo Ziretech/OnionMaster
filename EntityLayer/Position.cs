@@ -1,12 +1,12 @@
 ﻿namespace EntityLayer
 {
-    public class Positional
+    public class Position
     {
         public int X;
         public int Y;
         public int Z;
 
-        public Positional(int x, int y, int z)
+        public Position(int x, int y, int z)
         {
             X = x;
             Y = y;

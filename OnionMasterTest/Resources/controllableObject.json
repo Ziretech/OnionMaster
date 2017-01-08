@@ -6,7 +6,7 @@
             "moveright": 1,
             "moveleft": 1
         },
-        "positional": {
+        "position": {
             "x": 5,
             "y": 6,
             "z": 0

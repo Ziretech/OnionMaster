@@ -13,7 +13,7 @@ namespace UseCaseLayer.Player
             return new GameObject()
             {
                 Controllable = moveUp == null ? null : new Controllable((int)moveUp, 0, 0, 0),
-                Positional = y == null ? null : new Positional(0, (int)y, 0)
+                Position = y == null ? null : new Position(0, (int)y, 0)
             };
         }
 
@@ -22,7 +22,7 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(5, 3) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveUp();
-            Assert.That(gameObjects[0].Positional.Y, Is.EqualTo(8));
+            Assert.That(gameObjects[0].Position.Y, Is.EqualTo(8));
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(3, 0) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveUp();
-            Assert.That(gameObjects[0].Positional.Y, Is.EqualTo(3));
+            Assert.That(gameObjects[0].Position.Y, Is.EqualTo(3));
         }
 
         [Test]
@@ -38,8 +38,8 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(3, 0), CreateGameObject(5, 15) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveUp();
-            Assert.That(gameObjects[0].Positional.Y, Is.EqualTo(3));
-            Assert.That(gameObjects[1].Positional.Y, Is.EqualTo(20));
+            Assert.That(gameObjects[0].Position.Y, Is.EqualTo(3));
+            Assert.That(gameObjects[1].Position.Y, Is.EqualTo(20));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace UseCaseLayer.Player
         {
             var gameObjects = new List<GameObject>() { CreateGameObject(null, 0), CreateGameObject(4, 1) };
             new MoveControlledCharacter(new GameWorld(gameObjects)).MoveUp();
-            Assert.That(gameObjects[1].Positional.Y, Is.EqualTo(5));
+            Assert.That(gameObjects[1].Position.Y, Is.EqualTo(5));
         }
 
         [Test]

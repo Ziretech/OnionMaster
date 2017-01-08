@@ -3,8 +3,10 @@
     public class GameObject
     {
         public string Name { get; set; }
-        public Renderable Renderable { get; set; }
-        public Positional Positional { get; set; }
+        public Position Position { get; set; }
         public Controllable Controllable { get; set; }
+        public TiledArea TiledArea { get; set; }
+        public TileSetCoordinate TileSetCoordinate { get; set; }
+        public TileDimension TileDimension { get; set; }
     }
 }

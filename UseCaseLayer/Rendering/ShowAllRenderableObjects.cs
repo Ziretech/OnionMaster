@@ -7,7 +7,7 @@ namespace UseCaseLayer.Rendering
 {
     public class ShowAllRenderableObjects : IShowAllRenderableObjects
     {
-        private readonly List<GameObject> _renderable;
+        private readonly GameWorld _gameWorld;
 
         public ShowAllRenderableObjects(GameWorld world)
         {
@@ -15,17 +15,22 @@ namespace UseCaseLayer.Rendering
             {
                 throw new ArgumentNullException("GameWorld must not be null");
             }
-            _renderable = world.GetObjects().Where(o => IsRenderable(o)).ToList();
+            _gameWorld = world;
         }
 
         public IEnumerable<RenderInfo> Render()
         {
-            return _renderable.Select(r => new RenderInfo(r.Positional, r.Renderable));
+            return _gameWorld
+                .GetObjects()
+                .Where(o => IsRenderable(o))
+                .Select(o => new RenderInfo(o.Position, o.TileSetCoordinate, o.TileDimension));
         }
 
         private bool IsRenderable(GameObject gameObject)
         {
-            return gameObject.Renderable != null && gameObject.Positional != null;
+            return gameObject.Position != null &&
+                gameObject.TileSetCoordinate != null &&
+                gameObject.TileDimension != null;
         }
     }
 }

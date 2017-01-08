@@ -14,6 +14,14 @@ namespace OnionMaster
     public class SessionDataConverterTest
     {
         [Test]
+        public void Should_create_object_rendered_as_an_area_of_equal_sized_tiles_side_by_side()
+        {
+            var sessionData = SessionDataConverter.Convert(ReadResourceFile("tiledAreaObject.json"));
+            var renderInfos = new ShowAllRenderableObjects(new GameWorld(sessionData)).Render().ToList();
+            Assert.That(renderInfos.Count, Is.EqualTo(4));
+        }
+
+        [Test]
         public void Should_create_object_that_can_be_controlled_by_the_player()
         {
             var sessionData = SessionDataConverter.Convert(ReadResourceFile("controllableObject.json"));
@@ -46,8 +54,7 @@ namespace OnionMaster
             Assert.AreEqual(1, list.Count);
             Assert.IsNull(gameObject.Name);
             Assert.IsNull(gameObject.Controllable);
-            Assert.IsNull(gameObject.Positional);
-            Assert.IsNull(gameObject.Renderable);
+            Assert.IsNull(gameObject.Position);
         }
 
         [Test]

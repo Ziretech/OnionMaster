@@ -20,27 +20,27 @@ namespace UseCaseLayer.Player
 
         public void MoveUp()
         {
-            _moveable.ForEach(o => o.Positional.Y += o.Controllable.MoveUp);
+            _moveable.ForEach(o => o.Position.Y += o.Controllable.MoveUp);
         }
 
         public void MoveDown()
         {
-            _moveable.ForEach(o => o.Positional.Y -= o.Controllable.MoveDown);
+            _moveable.ForEach(o => o.Position.Y -= o.Controllable.MoveDown);
         }
 
         public void MoveRight()
         {
-            _moveable.ForEach(o => o.Positional.X += o.Controllable.MoveRight);
+            _moveable.ForEach(o => o.Position.X += o.Controllable.MoveRight);
         }
 
         public void MoveLeft()
         {
-            _moveable.ForEach(o => o.Positional.X -= o.Controllable.MoveLeft);
+            _moveable.ForEach(o => o.Position.X -= o.Controllable.MoveLeft);
         }
 
         private bool IsMovable(GameObject gameObject)
         {
-            return gameObject.Controllable != null && gameObject.Positional != null;
+            return gameObject.Controllable != null && gameObject.Position != null;
         }
     }
 }

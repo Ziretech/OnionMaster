@@ -89,6 +89,7 @@
     <EmbeddedResource Include="Resources\positionalObject.json" />
     <EmbeddedResource Include="Resources\controllableObject.json" />
     <EmbeddedResource Include="Resources\renderableObject.json" />
+    <EmbeddedResource Include="Resources\tiledAreaObject.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
