@@ -9,5 +9,6 @@ namespace AdaptorLayer
     {
         IMoveControlledCharacter GetMoveControlledCharacter(GameWorld gameWorld);
         IShowAllRenderableObjects GetShowAllRenderableObjects(GameWorld gameWorld);
+        IShowTiledAreaObjects GetShowTiledAreaObjects(GameWorld gameWorld);
     }
 }

@@ -17,5 +17,10 @@ namespace AdaptorLayer
         {
             return new ShowAllRenderableObjects(gameWorld);
         }
+
+        public IShowTiledAreaObjects GetShowTiledAreaObjects(GameWorld gameWorld)
+        {
+            return new ShowTiledAreaObjects(gameWorld);
+        }
     }
 }
