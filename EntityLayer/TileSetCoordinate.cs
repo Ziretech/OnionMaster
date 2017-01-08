@@ -12,5 +12,28 @@
             X = x;
             Y = y;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && Equals(obj as TileSetCoordinate);
+        }
+
+        public bool Equals(TileSetCoordinate other)
+        {
+            return other != null &&
+                Id == other.Id &&
+                X == other.X &&
+                Y == other.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id ^ X ^ Y;
+        }
+
+        public override string ToString()
+        {
+            return $"{Id}@{X},{Y}";
+        }
     }
 }
