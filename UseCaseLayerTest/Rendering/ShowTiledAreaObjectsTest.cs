@@ -103,6 +103,29 @@ namespace UseCaseLayer.Rendering
         }
 
         [Test]
+        public void Should_begin_a_new_row_when_number_of_tiles_exceeds_area_width()
+        {
+            var world = new GameWorld(new List<GameObject> {
+                new GameObject
+                {
+                    TiledArea = new TiledArea(
+                        new TileDimension(3, 2),
+                        new List<TileSetCoordinate>
+                        {
+                            new TileSetCoordinate(1, 2, 3),
+                            new TileSetCoordinate(4, 5, 6)
+                        },
+                        2,
+                        new List<int> { 0, 0, 1 }),
+                    Position = new Position(5, 6, 7)
+                }
+            });
+            var renderInfos = new ShowTiledAreaObjects(world).Render();
+            Assert.That(renderInfos.Count, Is.EqualTo(3));
+            Assert.That(renderInfos.ElementAt(2), Is.EqualTo(new RenderInfo(5, 8, 7, 4, 5, 6, 3, 2)));
+        }
+
+        [Test]
         public void Should_not_find_render_info_from_an_object_missing_position()
         {
             var world = new GameWorld(new List<GameObject> {

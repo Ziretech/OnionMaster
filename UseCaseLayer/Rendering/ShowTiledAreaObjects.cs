@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using EntityLayer;
 
 namespace UseCaseLayer.Rendering
@@ -39,7 +35,7 @@ namespace UseCaseLayer.Rendering
             {
                 var coordinates = gameObject.TiledArea.TileSetCoordinates[index];
                 
-                var newPosition = new Position(position.X + currentIndex * dimension.Width, position.Y, position.Z);
+                var newPosition = new Position(position.X + (currentIndex % gameObject.TiledArea.AreaWidth) * dimension.Width, position.Y + (currentIndex / gameObject.TiledArea.AreaWidth) * dimension.Height, position.Z);
                 yield return new RenderInfo(newPosition, coordinates, dimension);
                 currentIndex++;
             }
