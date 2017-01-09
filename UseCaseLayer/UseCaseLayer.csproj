@@ -46,6 +46,7 @@
     <Compile Include="Rendering\IRenderable.cs" />
     <Compile Include="Rendering\RenderInfo.cs" />
     <Compile Include="Rendering\ShowAllRenderableObjects.cs" />
+    <Compile Include="Rendering\ShowAnimatedObjects.cs" />
     <Compile Include="Rendering\ShowTiledAreaObjects.cs" />
   </ItemGroup>
   <ItemGroup>

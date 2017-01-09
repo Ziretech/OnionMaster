@@ -11,7 +11,6 @@ namespace OnionMaster
         [Test]
         public void Animated_object_is_displayed()
         {
-
             GameWorld gameWorld = new GameWorld(SessionDataConverter.Convert(ResourceFile.Read("animationObject.json")));
             InputMock input = new InputMock();
             ISession session = new Session(gameWorld, input, new UseCaseProvider());
