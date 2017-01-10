@@ -11,12 +11,14 @@ namespace AdaptorLayer
         private readonly GameWorld _gameWorld;
         private readonly IInput _input;
         private readonly IUseCaseProvider _useCases;
+        private int _tick;
 
         public Session(GameWorld gameWorld, IInput input, IUseCaseProvider useCases)
         {
             _gameWorld = gameWorld;
             _input = input;
             _useCases = useCases;
+            _tick = 0;
         }
 
         public IEnumerable<DrawCommand> DrawScreen()
@@ -37,11 +39,13 @@ namespace AdaptorLayer
         }
         private IEnumerable<RenderInfo> ShowAnimatedObjects()
         {
-            return _useCases.GetShowAnimatedObjects(_gameWorld, 0).Render();
+            return _useCases.GetShowAnimatedObjects(_gameWorld, _tick).Render();
         }
 
         public void Update()
         {
+            _tick++;
+
             if (_input.IsCloseApplicationPressed())
             {
                 ExitGame = true;

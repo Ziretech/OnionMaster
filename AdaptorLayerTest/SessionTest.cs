@@ -67,45 +67,55 @@ namespace AdaptorLayer
         [Test]
         public void Should_show_all_renderable_objects_when_draw_to_screen()
         {
-            _useCasesMock.ShowAllRenderableObjectsMock.RenderInfos = new List<RenderInfo>() { new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8) };
+            var renderInfo = new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8);
+            _useCasesMock.ShowAllRenderableObjectsMock.RenderInfos = new List<RenderInfo>() { renderInfo };
             var session = new Session(null, new InputMock(), _useCasesMock);
-            var commands = session.DrawScreen().ToList();
-            Assert.That(commands.Count, Is.EqualTo(1));
-            Assert.That(commands[0], Is.EqualTo(new DrawCommand(1, 2, 4, 5, 6, 7, 8)));
+            var commands = session.DrawScreen();
+            Assert.That(commands, Is.EquivalentTo(new List<DrawCommand> { new DrawCommand(renderInfo) }));
         }
 
         [Test]
         public void Should_show_all_tiled_area_objects_when_draw_to_screen()
         {
-            _useCasesMock.ShowTiledAreaObjectsMock.RenderInfos = new List<RenderInfo>() { new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8) };
+            var renderInfo = new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8);
+            _useCasesMock.ShowTiledAreaObjectsMock.RenderInfos = new List<RenderInfo>() { renderInfo };
             var session = new Session(null, new InputMock(), _useCasesMock);
             var commands = session.DrawScreen();
-            Assert.That(commands.Count, Is.EqualTo(1));
-            Assert.That(commands.ElementAt(0), Is.EqualTo(new DrawCommand(1, 2, 4, 5, 6, 7, 8)));
+            Assert.That(commands, Is.EquivalentTo(new List<DrawCommand> { new DrawCommand(renderInfo) }));
         }
 
         [Test]
-        public void Should_show_animation_objects_first_frame_when_draw_to_screen_before_update()
+        public void Should_show_animation_objects_when_draw_to_screen()
         {
-            _useCasesMock.ShowTiledAreaObjectsMock.RenderInfos = new List<RenderInfo>() { new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8) };
+            _useCasesMock.ShowAnimatedObjectsMock.RenderInfos = new List<RenderInfo>() { new RenderInfo(1, 2, 3, 4, 5, 6, 7, 8) };
             var session = new Session(null, new InputMock(), _useCasesMock);
             var commands = session.DrawScreen();
-            Assert.That(commands.First(), Is.EqualTo(new DrawCommand(1, 2, 4, 5, 6, 7, 8)));
             Assert.That(commands, Is.EquivalentTo(new List<DrawCommand>() { new DrawCommand(1, 2, 4, 5, 6, 7, 8) }));
+        }
+
+        [Test]
+        public void Should_show_animation_with_increased_ticks_for_each_update()
+        {
+            var session = new Session(null, new InputMock(), _useCasesMock);
+            session.DrawScreen();
+            Assert.That(_useCasesMock.ShowAnimatedObjectsMock.LatestCalledTick, Is.EqualTo(0));
+            session.Update();
+            session.DrawScreen();
+            Assert.That(_useCasesMock.ShowAnimatedObjectsMock.LatestCalledTick, Is.EqualTo(1));
+            session.Update();
+            session.DrawScreen();
+            Assert.That(_useCasesMock.ShowAnimatedObjectsMock.LatestCalledTick, Is.EqualTo(2));
         }
 
         [Test]
         public void Should_sort_renderable_objects_by_layer()
         {
-            _useCasesMock.ShowAllRenderableObjectsMock.RenderInfos = new List<RenderInfo>() {
-                new RenderInfo(1, 9, 3, 9, 9, 9, 9, 9),
-                new RenderInfo(2, 9, 1, 9, 9, 9, 9, 9)
-            };
+            var above = new RenderInfo(1, 9, 3, 9, 9, 9, 9, 9);
+            var below = new RenderInfo(2, 9, 1, 9, 9, 9, 9, 9);
+            _useCasesMock.ShowAllRenderableObjectsMock.RenderInfos = new List<RenderInfo>() { above,  below };
             var session = new Session(null, new InputMock(), _useCasesMock);
             var commands = session.DrawScreen().ToList();
-            Assert.That(commands.Count, Is.EqualTo(2));
-            Assert.That(commands[0].ScreenX, Is.EqualTo(2));
-            Assert.That(commands[1].ScreenX, Is.EqualTo(1));
+            Assert.That(commands, Is.EquivalentTo(new List<DrawCommand> { new DrawCommand(below), new DrawCommand(above) }));
         }
     }
 }

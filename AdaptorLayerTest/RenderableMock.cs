@@ -6,7 +6,8 @@ namespace AdaptorLayer
 {
     public class RenderableMock : IRenderable
     {
-        public IEnumerable<RenderInfo> RenderInfos { get; set; }        
+        public IEnumerable<RenderInfo> RenderInfos { get; set; }
+        public int LatestCalledTick { get; internal set; }
 
         public RenderableMock()
         {

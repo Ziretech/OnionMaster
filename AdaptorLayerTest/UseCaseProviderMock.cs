@@ -38,6 +38,7 @@ namespace AdaptorLayer
 
         public IRenderable GetShowAnimatedObjects(GameWorld gameWorld, int tick)
         {
+            ShowAnimatedObjectsMock.LatestCalledTick = tick;
             return ShowAnimatedObjectsMock;
         }
     }
