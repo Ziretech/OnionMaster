@@ -10,5 +10,6 @@ namespace AdaptorLayer
         IMovable GetMoveControlledCharacter(GameWorld gameWorld);
         IRenderable GetShowAllRenderableObjects(GameWorld gameWorld);
         IRenderable GetShowTiledAreaObjects(GameWorld gameWorld);
+        IRenderable GetShowAnimatedObjects(GameWorld gameWorld, int tick);
     }
 }

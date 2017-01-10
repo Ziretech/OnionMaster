@@ -11,12 +11,14 @@ namespace AdaptorLayer
         public MovableMock MoveControlledCharacterMock { get; set; }
         public RenderableMock ShowAllRenderableObjectsMock { get; set; }
         public RenderableMock ShowTiledAreaObjectsMock { get; set; }
+        public RenderableMock ShowAnimatedObjectsMock { get; set; }
 
         public UseCaseProviderMock()
         {
             MoveControlledCharacterMock = new MovableMock();
             ShowAllRenderableObjectsMock = new RenderableMock();
             ShowTiledAreaObjectsMock = new RenderableMock();
+            ShowAnimatedObjectsMock = new RenderableMock();
         }
 
         public IMovable GetMoveControlledCharacter(GameWorld gameWorld)
@@ -32,6 +34,11 @@ namespace AdaptorLayer
         public IRenderable GetShowTiledAreaObjects(GameWorld gameWorld)
         {
             return ShowTiledAreaObjectsMock;
+        }
+
+        public IRenderable GetShowAnimatedObjects(GameWorld gameWorld, int tick)
+        {
+            return ShowAnimatedObjectsMock;
         }
     }
 }

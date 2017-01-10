@@ -23,6 +23,7 @@ namespace AdaptorLayer
         {
             return ShowRenderableObject()
                 .Concat(ShowTiledAreaObjects())
+                .Concat(ShowAnimatedObjects())
                 .OrderBy(info => info.ScreenLayer).Select(info => new DrawCommand(info));
         }
 
@@ -33,6 +34,10 @@ namespace AdaptorLayer
         private IEnumerable<RenderInfo> ShowTiledAreaObjects()
         {
             return _useCases.GetShowTiledAreaObjects(_gameWorld).Render();
+        }
+        private IEnumerable<RenderInfo> ShowAnimatedObjects()
+        {
+            return _useCases.GetShowAnimatedObjects(_gameWorld, 0).Render();
         }
 
         public void Update()

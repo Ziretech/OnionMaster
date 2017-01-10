@@ -23,7 +23,7 @@ namespace AdaptorLayer
             return new ShowTiledAreaObjects(gameWorld);
         }
 
-        public object GetShowAnimatedObjects(GameWorld world, int tick)
+        public IRenderable GetShowAnimatedObjects(GameWorld world, int tick)
         {
             return new ShowAnimatedObjects(world, tick);
         }
