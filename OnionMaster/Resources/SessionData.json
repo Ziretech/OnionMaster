@@ -85,5 +85,39 @@
                 0
             ]
         }
+    },
+    {
+        "position": {
+            "x": 0,
+            "y": 32,
+            "z": 5
+        },
+        "currentAnimation": {
+            "startTick": 0
+        },
+        "animation": [
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                }
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 0,
+                    "y": 32
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                }
+            }
+        ]
     }
 ]
