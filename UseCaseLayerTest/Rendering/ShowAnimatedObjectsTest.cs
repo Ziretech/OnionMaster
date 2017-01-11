@@ -66,12 +66,27 @@ namespace UseCaseLayer.Rendering
         }
 
         [Test]
+        public void Should_not_render_animations_with_zero_duration()
+        {
+            var world = new GameWorld(new List<GameObject>
+            {
+                new GameObject()
+                {
+                    Animation = new List<Frame> { new Frame(new TileSetCoordinate(0, 1, 2), new TileDimension(3, 4), 0) },
+                    Position = new Position(5, 6, 7)
+                }
+            });
+            var renderInfos = new ShowAnimatedObjects(world, 0).Render();
+            Assert.That(renderInfos, Is.Empty);
+        }
+
+        [Test]
         public void Should_not_render_frames_without_tile_dimension()
         {
             var world = new GameWorld(new List<GameObject> {
                 new GameObject()
                 {
-                    Animation = new List<Frame> { new Frame(new TileSetCoordinate(0, 1, 2), null) },
+                    Animation = new List<Frame> { new Frame(new TileSetCoordinate(0, 1, 2), null, 1) },
                     Position = new Position(5, 6, 7)
                 }
             });
@@ -85,7 +100,7 @@ namespace UseCaseLayer.Rendering
             var world = new GameWorld(new List<GameObject> {
                 new GameObject()
                 {
-                    Animation = new List<Frame> { new Frame(null, new TileDimension(3, 4)) },
+                    Animation = new List<Frame> { new Frame(null, new TileDimension(3, 4), 1) },
                     Position = new Position(5, 6, 7)
                 }
             });

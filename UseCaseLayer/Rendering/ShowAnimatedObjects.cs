@@ -41,11 +41,13 @@ namespace UseCaseLayer.Rendering
         private RenderInfo RenderAnimation(Position position, List<Frame> animation)
         {
             var animationDuration = animation.Sum(f => f.Duration);
-            var currentTimeInAnimation = _tick % animationDuration;
-            var frame = FindCurrentFrame(animation, currentTimeInAnimation);
-            //var numberOfFrames = animation.Count;
-            //var frame = animation.ElementAt(_tick % numberOfFrames);
-            return RenderFrame(position, frame);
+            if(animationDuration > 0)
+            {
+                var currentTimeInAnimation = _tick % animationDuration;
+                var frame = FindCurrentFrame(animation, currentTimeInAnimation);
+                return RenderFrame(position, frame);
+            }
+            return null;
         }
 
         public static Frame FindCurrentFrame(List<Frame> animation, int time)
