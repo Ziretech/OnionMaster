@@ -6,12 +6,12 @@
         {
             TileSetCoordinate = coordinate;
             TileDimension = dimension;
-            Time = time;
+            Duration = time;
         }
 
         public TileSetCoordinate TileSetCoordinate { get; set; }
         public TileDimension TileDimension { get; set; }
-        public int Time { get; set; }
+        public int Duration { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -23,17 +23,17 @@
             return other != null && 
                 (TileSetCoordinate == other.TileSetCoordinate || (TileSetCoordinate != null && TileSetCoordinate.Equals(other.TileSetCoordinate))) &&
                 (TileDimension == other.TileDimension || (TileDimension != null && TileDimension.Equals(other.TileDimension))) &&
-                Time == other.Time;
+                Duration == other.Duration;
         }
 
         public override int GetHashCode()
         {
-            return TileSetCoordinate.GetHashCode() ^ TileDimension.GetHashCode() ^ Time;
+            return TileSetCoordinate.GetHashCode() ^ TileDimension.GetHashCode() ^ Duration;
         }
 
         public override string ToString()
         {
-            return $"{TileSetCoordinate.ToString()} {TileDimension} :{Time}";
+            return $"{TileSetCoordinate.ToString()} {TileDimension} :{Duration}";
         }
     }
 }

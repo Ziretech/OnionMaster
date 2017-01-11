@@ -11,54 +11,58 @@ namespace UseCaseLayer.Rendering
     [TestFixture]
     public class ShowAnimatedObjectsTest
     {
-        [Test]
-        public void Should_render_first_frame_when_ticks_are_one_more_then_number_of_frames()
+        private GameWorld _world;
+        private Frame _firstFrame;
+        private Frame _secondFrame;
+        private RenderInfo _firstFrameRendered;
+        private RenderInfo _secondFrameRendered;
+
+        [SetUp]
+        public void Setup()
         {
-            var world = new GameWorld(new List<GameObject> {
+            var position = new Position(5, 6, 7);
+            _firstFrame = new Frame(new TileSetCoordinate(10, 11, 12), new TileDimension(13, 14));
+            _secondFrame = new Frame(new TileSetCoordinate(20, 21, 22), new TileDimension(23, 24));
+
+            _firstFrameRendered = new RenderInfo(position, _firstFrame.TileSetCoordinate, _firstFrame.TileDimension);
+            _secondFrameRendered = new RenderInfo(position, _secondFrame.TileSetCoordinate, _secondFrame.TileDimension);
+
+            _world = new GameWorld(new List<GameObject> {
                 new GameObject
                 {
-                    Animation = new List<Frame>
-                    {
-                        new Frame(new TileSetCoordinate(10, 11, 12), new TileDimension(13, 14)),
-                        new Frame(new TileSetCoordinate(20, 21, 22), new TileDimension(23, 24))
-                    },
-                    Position = new Position(5, 6, 7)
+                    Animation = new List<Frame> { _firstFrame, _secondFrame },
+                    Position = position
                 }
             });
-            var renderInfos = new ShowAnimatedObjects(world, 2).Render();
-            Assert.That(renderInfos.First(), Is.EqualTo(new RenderInfo(5, 6, 7, 10, 11, 12, 13, 14)));
+        }
+
+        [Test]
+        public void Should_render_first_frame_in_animation()
+        {            
+            var renderInfos = new ShowAnimatedObjects(_world, 0).Render();
+            Assert.That(renderInfos.First(), Is.EqualTo(_firstFrameRendered));
         }
 
         [Test]
         public void Should_render_second_frame_in_animation_when_ticks_have_increased()
         {
-            var world = new GameWorld(new List<GameObject> {
-                new GameObject
-                {
-                    Animation = new List<Frame>
-                    {
-                        new Frame(new TileSetCoordinate(10, 11, 12), new TileDimension(13, 14)),
-                        new Frame(new TileSetCoordinate(20, 21, 22), new TileDimension(23, 24))
-                    },
-                    Position = new Position(5, 6, 7)
-                }
-            });
-            var renderInfos = new ShowAnimatedObjects(world, 1).Render();
-            Assert.That(renderInfos.First(), Is.EqualTo(new RenderInfo(5, 6, 7, 20, 21, 22, 23, 24)));
+            var renderInfos = new ShowAnimatedObjects(_world, 1).Render();
+            Assert.That(renderInfos.First(), Is.EqualTo(_secondFrameRendered));
         }
 
         [Test]
-        public void Should_render_first_frame_in_animation()
+        public void Should_render_first_frame_when_ticks_are_one_more_then_number_of_frames()
+        {   
+            var renderInfos = new ShowAnimatedObjects(_world, 2).Render();
+            Assert.That(renderInfos.First(), Is.EqualTo(_firstFrameRendered));
+        }
+
+        [Test]
+        public void Should_render_first_frame_at_tick_1_when_duration_of_first_frame_is_2()
         {
-            var world = new GameWorld(new List<GameObject> {
-                new GameObject
-                {
-                    Animation = new List<Frame> { new Frame(new TileSetCoordinate(0, 1, 2), new TileDimension(3, 4)) },
-                    Position = new Position(5, 6, 7)
-                }
-            });
-            var renderInfos = new ShowAnimatedObjects(world, 0).Render();
-            Assert.That(renderInfos.First(), Is.EqualTo(new RenderInfo(5, 6, 7, 0, 1, 2, 3, 4)));
+            _firstFrame.Duration = 2;
+            var renderInfos = new ShowAnimatedObjects(_world, 1).Render();
+            Assert.That(renderInfos.First(), Is.EqualTo(_firstFrameRendered));
         }
 
         [Test]

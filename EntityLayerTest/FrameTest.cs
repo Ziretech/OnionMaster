@@ -37,7 +37,7 @@ namespace EntityLayer
         [Test]
         public void Should_have_time()
         {
-            Assert.That(_frame.Time, Is.EqualTo(3));
+            Assert.That(_frame.Duration, Is.EqualTo(3));
         }
 
         [Test]

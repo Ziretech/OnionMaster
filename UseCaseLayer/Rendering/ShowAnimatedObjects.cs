@@ -28,15 +28,47 @@ namespace UseCaseLayer.Rendering
             {
                 if (gameObject.Position != null && gameObject.Animation != null)
                 {
-                    var numberOfFrames = gameObject.Animation.Count;
-                    var frame = gameObject.Animation.ElementAt(_tick % numberOfFrames);
-                    if(frame.TileSetCoordinate != null && frame.TileDimension != null)
+                    var info = RenderAnimation(gameObject.Position, gameObject.Animation);
+                    if(info != null)
                     {
-                        yield return new RenderInfo(gameObject.Position, frame.TileSetCoordinate, frame.TileDimension);
+                        yield return info;
                     }
                     
                 }
             }
+        }
+
+        private RenderInfo RenderAnimation(Position position, List<Frame> animation)
+        {
+            var animationDuration = animation.Sum(f => f.Duration);
+            var currentTimeInAnimation = _tick % animationDuration;
+            var frame = FindCurrentFrame(animation, currentTimeInAnimation);
+            //var numberOfFrames = animation.Count;
+            //var frame = animation.ElementAt(_tick % numberOfFrames);
+            return RenderFrame(position, frame);
+        }
+
+        public static Frame FindCurrentFrame(List<Frame> animation, int time)
+        {
+            var currentTime = 0;
+            foreach(var frame in animation)
+            {
+                currentTime += frame.Duration;
+                if (currentTime > time)
+                {
+                    return frame;
+                }                
+            }
+            return animation.ElementAt(0);
+        }
+
+        private RenderInfo RenderFrame(Position position, Frame frame)
+        {
+            if (frame.TileSetCoordinate != null && frame.TileDimension != null)
+            {
+                return new RenderInfo(position, frame.TileSetCoordinate, frame.TileDimension);
+            }
+            return null;
         }
     }
 }
