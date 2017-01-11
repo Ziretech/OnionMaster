@@ -2,7 +2,7 @@
 {
     public class Frame
     {
-        public Frame(TileSetCoordinate coordinate, TileDimension dimension, int time = 1)
+        public Frame(TileSetCoordinate coordinate, TileDimension dimension, int time)
         {
             TileSetCoordinate = coordinate;
             TileDimension = dimension;

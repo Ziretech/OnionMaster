@@ -21,8 +21,8 @@ namespace UseCaseLayer.Rendering
         public void Setup()
         {
             var position = new Position(5, 6, 7);
-            _firstFrame = new Frame(new TileSetCoordinate(10, 11, 12), new TileDimension(13, 14));
-            _secondFrame = new Frame(new TileSetCoordinate(20, 21, 22), new TileDimension(23, 24));
+            _firstFrame = new Frame(new TileSetCoordinate(10, 11, 12), new TileDimension(13, 14), 1);
+            _secondFrame = new Frame(new TileSetCoordinate(20, 21, 22), new TileDimension(23, 24), 1);
 
             _firstFrameRendered = new RenderInfo(position, _firstFrame.TileSetCoordinate, _firstFrame.TileDimension);
             _secondFrameRendered = new RenderInfo(position, _secondFrame.TileSetCoordinate, _secondFrame.TileDimension);
@@ -128,7 +128,7 @@ namespace UseCaseLayer.Rendering
             var world = new GameWorld(new List<GameObject> {
                 new GameObject()
                 {
-                    Animation = new List<Frame> { new Frame(new TileSetCoordinate(1, 2, 3), new TileDimension(4, 5)) }
+                    Animation = new List<Frame> { new Frame(new TileSetCoordinate(1, 2, 3), new TileDimension(4, 5), 1) }
                 }
             });
             var renderInfos = new ShowAnimatedObjects(world, 0).Render();
