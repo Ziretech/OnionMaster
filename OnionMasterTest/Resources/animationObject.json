@@ -18,7 +18,8 @@
                 "tileDimension": {
                     "width": 13,
                     "height": 14
-                }
+                },
+                "time": 1
             },
             {
                 "tileSetCoordinate": {
@@ -29,7 +30,8 @@
                 "tileDimension": {
                     "width": 23,
                     "height": 24
-                }
+                },
+                "time": 2
             }
         ]
     }
