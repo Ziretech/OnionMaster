@@ -9,45 +9,40 @@ namespace AdaptorLayer
     [TestFixture]
     class UseCaseProviderTest
     {
-        [Test]
-        public void Should_create_use_case_to_show_all_renderable_objects()
-        {
-            var provider = new UseCaseProvider();
-            var world = new GameWorld(new List<GameObject>());
-            Assert.That(provider.GetShowAllRenderableObjects(world).GetType(), Is.EqualTo(typeof(ShowAllRenderableObjects)));
-        }
-
-        [Test]
-        public void Should_create_use_case_to_show_tiled_area_objects()
-        {
-            var provider = new UseCaseProvider();
-            var world = new GameWorld(new List<GameObject>());
-            Assert.That(provider.GetShowTiledAreaObjects(world).GetType(), Is.EqualTo(typeof(ShowTiledAreaObjects)));
-        }
-
-        [Test]
-        public void Should_create_use_case_to_move_controlled_character()
-        {
-            var provider = new UseCaseProvider();
-            var world = new GameWorld(new List<GameObject>());
-            Assert.That(provider.GetMoveControlledCharacter(world).GetType(), Is.EqualTo(typeof(MoveControlledCharacter)));
-        }
-
-        [Test]
-        public void Should_create_use_case_to_show_animated_objects()
-        {
-            var provider = new UseCaseProvider();
-            var world = new GameWorld(new List<GameObject>());
-            Assert.That(provider.GetShowAnimatedObjects(world, 0).GetType(), Is.EqualTo(typeof(ShowAnimatedObjects)));
-        }
-
         private IUseCaseProvider _provider;
+        private GameWorld _world;
 
         [SetUp]
         public void Setup()
         {
             _provider = new UseCaseProvider();
+            _world = new GameWorld(new List<GameObject>());
         }
+
+        [Test]
+        public void Should_create_use_case_to_show_all_renderable_objects()
+        {
+            
+            Assert.That(_provider.GetShowAllRenderableObjects(_world).GetType(), Is.EqualTo(typeof(ShowAllRenderableObjects)));
+        }
+
+        [Test]
+        public void Should_create_use_case_to_show_tiled_area_objects()
+        {
+            Assert.That(_provider.GetShowTiledAreaObjects(_world).GetType(), Is.EqualTo(typeof(ShowTiledAreaObjects)));
+        }
+
+        [Test]
+        public void Should_create_use_case_to_move_controlled_character()
+        {
+            Assert.That(_provider.GetMoveControlledCharacter(_world).GetType(), Is.EqualTo(typeof(MoveControlledCharacter)));
+        }
+
+        [Test]
+        public void Should_create_use_case_to_show_animated_objects()
+        {
+            Assert.That(_provider.GetShowAnimatedObjects(_world, 0).GetType(), Is.EqualTo(typeof(ShowAnimatedObjects)));
+        }        
 
         [Test]
         public void Should_provide_use_case_to_move_controlled_object()

@@ -44,7 +44,7 @@ namespace AdaptorLayer
 
         public void Update()
         {
-            _tick++;
+            _tick++;            
 
             if (_input.IsCloseApplicationPressed())
             {
