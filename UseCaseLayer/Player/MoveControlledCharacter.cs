@@ -8,39 +8,38 @@ namespace UseCaseLayer.Player
     public class MoveControlledCharacter : IMovable
     {
         private readonly List<GameObject> _moveable;
+        private readonly MoveControlledCharacterSingleObject _move;
 
         public MoveControlledCharacter(GameWorld gameWorld)
         {
-            if(gameWorld == null)
+            _move = new MoveControlledCharacterSingleObject();
+            if (gameWorld == null)
             {
                 throw new ArgumentNullException("GameWorld must not be null");
             }
-            _moveable = gameWorld.GetObjects().Where(o => IsMovable(o)).ToList();
+            
+            _moveable = gameWorld.GetObjects().Where(o => _move.IsControllable(o)).ToList();
+            
         }
 
         public void MoveUp()
         {
-            _moveable.ForEach(o => o.Position.Y += o.Controllable.MoveUp);
+            _moveable.ForEach(o => _move.MoveUp(o));
         }
 
         public void MoveDown()
         {
-            _moveable.ForEach(o => o.Position.Y -= o.Controllable.MoveDown);
+            _moveable.ForEach(o => _move.MoveDown(o));
         }
 
         public void MoveRight()
         {
-            _moveable.ForEach(o => o.Position.X += o.Controllable.MoveRight);
+            _moveable.ForEach(o => _move.MoveRight(o));
         }
 
         public void MoveLeft()
         {
-            _moveable.ForEach(o => o.Position.X -= o.Controllable.MoveLeft);
-        }
-
-        private bool IsMovable(GameObject gameObject)
-        {
-            return gameObject.Controllable != null && gameObject.Position != null;
+            _moveable.ForEach(o => _move.MoveLeft(o));
         }
     }
 }

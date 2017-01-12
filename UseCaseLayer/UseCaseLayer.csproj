@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Player\IMovable.cs" />
     <Compile Include="Player\MoveControlledCharacter.cs" />
+    <Compile Include="Player\MoveControlledCharacterSingleObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\IRenderable.cs" />
     <Compile Include="Rendering\RenderInfo.cs" />

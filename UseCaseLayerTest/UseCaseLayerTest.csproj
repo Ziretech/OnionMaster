@@ -50,6 +50,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Player\MoveControlledCharacterSingleObjectTest.cs" />
     <Compile Include="Player\MoveControlledCharacter_MoveDownTest.cs" />
     <Compile Include="Player\MoveControlledCharacter_MoveLeftTest.cs" />
     <Compile Include="Player\MoveControlledCharacter_MoveRightTest.cs" />
