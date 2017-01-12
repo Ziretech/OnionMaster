@@ -13,6 +13,8 @@ namespace AdaptorLayer
         public RenderableMock ShowTiledAreaObjectsMock { get; set; }
         public RenderableMock ShowAnimatedObjectsMock { get; set; }
 
+        public IMovableSingle MoveControlledObject { get; }
+
         public UseCaseProviderMock()
         {
             MoveControlledCharacterMock = new MovableMock();

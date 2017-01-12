@@ -8,6 +8,13 @@ namespace AdaptorLayer
 {
     public class UseCaseProvider : IUseCaseProvider
     {
+        public IMovableSingle MoveControlledObject { get; private set; }
+
+        public UseCaseProvider()
+        {
+            MoveControlledObject = new MoveControlledCharacterSingleObject();
+        }
+
         public IMovable GetMoveControlledCharacter(GameWorld gameWorld)
         {
             return new MoveControlledCharacter(gameWorld);

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Player\IMovable.cs" />
+    <Compile Include="Player\IMovableSingle.cs" />
     <Compile Include="Player\MoveControlledCharacter.cs" />
     <Compile Include="Player\MoveControlledCharacterSingleObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

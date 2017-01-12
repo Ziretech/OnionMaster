@@ -7,6 +7,8 @@ namespace AdaptorLayer
 {
     public interface IUseCaseProvider
     {
+        IMovableSingle MoveControlledObject { get; }
+
         IMovable GetMoveControlledCharacter(GameWorld gameWorld);
         IRenderable GetShowAllRenderableObjects(GameWorld gameWorld);
         IRenderable GetShowTiledAreaObjects(GameWorld gameWorld);

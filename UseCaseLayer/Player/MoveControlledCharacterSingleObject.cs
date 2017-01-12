@@ -7,7 +7,7 @@ using EntityLayer;
 
 namespace UseCaseLayer.Player
 {
-    public class MoveControlledCharacterSingleObject
+    public class MoveControlledCharacterSingleObject : IMovableSingle
     {
         public void MoveUp(GameObject gameObject)
         {

@@ -40,5 +40,19 @@ namespace AdaptorLayer
             var world = new GameWorld(new List<GameObject>());
             Assert.That(provider.GetShowAnimatedObjects(world, 0).GetType(), Is.EqualTo(typeof(ShowAnimatedObjects)));
         }
+
+        private IUseCaseProvider _provider;
+
+        [SetUp]
+        public void Setup()
+        {
+            _provider = new UseCaseProvider();
+        }
+
+        [Test]
+        public void Should_provide_use_case_to_move_controlled_object()
+        {
+            Assert.That(_provider.MoveControlledObject.GetType(), Is.EqualTo(typeof(MoveControlledCharacterSingleObject)));
+        }
     }
 }
