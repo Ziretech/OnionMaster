@@ -14,6 +14,14 @@ namespace OnionMaster
     [TestFixture]
     public class SessionDataConverterTest
     {
+        private IUseCaseProvider _provider;
+
+        [SetUp]
+        public void Setup()
+        {
+            _provider = new UseCaseProvider();
+        }
+
         [Test]
         public void Should_deserialize_json_for_animationObject()
         {
@@ -31,9 +39,8 @@ namespace OnionMaster
         [Test]
         public void Should_create_object_rendered_as_an_area_of_equal_sized_tiles_side_by_side()
         {
-            var useCaseProvider = new UseCaseProvider();
             var sessionData = SessionDataConverter.Convert(ReadResourceFile("tiledAreaObject.json"));
-            var renderInfos = useCaseProvider.GetShowTiledAreaObjects(new GameWorld(sessionData)).Render();
+            var renderInfos = _provider.GetShowTiledAreaObjects(new GameWorld(sessionData)).Render();
             Assert.That(renderInfos.Count, Is.EqualTo(4));
             Assert.That(renderInfos.ElementAt(0), Is.EqualTo(new RenderInfo(128, 133, 0, 0, 12, 14, 32, 64)));
             Assert.That(renderInfos.ElementAt(1), Is.EqualTo(new RenderInfo(128+32, 133, 0, 1, 11, 20, 32, 64)));
@@ -48,13 +55,13 @@ namespace OnionMaster
             var gameWorld = new GameWorld(sessionData);
             var theObject = sessionData.First();
             theObject.IsAt(5, 6).OnLayer(0);
-            new MoveControlledCharacter(gameWorld).MoveUp();
+            _provider.GetMoveControlledCharacter(gameWorld).MoveUp();
             theObject.IsAt(5, 7);
-            new MoveControlledCharacter(gameWorld).MoveRight();
+            _provider.GetMoveControlledCharacter(gameWorld).MoveRight();
             theObject.IsAt(6, 7);
-            new MoveControlledCharacter(gameWorld).MoveDown();
+            _provider.GetMoveControlledCharacter(gameWorld).MoveDown();
             theObject.IsAt(6, 6);
-            new MoveControlledCharacter(gameWorld).MoveLeft();
+            _provider.GetMoveControlledCharacter(gameWorld).MoveLeft();
             theObject.IsAt(5, 6);
         }
 

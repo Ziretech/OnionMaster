@@ -8,16 +8,16 @@ namespace AdaptorLayer
 {
     public class UseCaseProvider : IUseCaseProvider
     {
-        public IMovableSingle MoveControlledObject { get; private set; }
+        private readonly MoveControlledCharacterSingleObject _moveControlledObject;
 
         public UseCaseProvider()
         {
-            MoveControlledObject = new MoveControlledCharacterSingleObject();
+            _moveControlledObject = new MoveControlledCharacterSingleObject();
         }
 
         public IMovable GetMoveControlledCharacter(GameWorld gameWorld)
         {
-            return new MoveControlledCharacter(gameWorld);
+            return new MoveControlledCharacter(gameWorld, _moveControlledObject);
         }
 
         public IRenderable GetShowAllRenderableObjects(GameWorld gameWorld)

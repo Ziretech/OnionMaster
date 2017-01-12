@@ -50,11 +50,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Player\MoveControlledCharacterSingleObjectMock.cs" />
     <Compile Include="Player\MoveControlledCharacterSingleObjectTest.cs" />
-    <Compile Include="Player\MoveControlledCharacter_MoveDownTest.cs" />
-    <Compile Include="Player\MoveControlledCharacter_MoveLeftTest.cs" />
-    <Compile Include="Player\MoveControlledCharacter_MoveRightTest.cs" />
-    <Compile Include="Player\MoveControlledCharacter_MoveUpTest.cs" />
+    <Compile Include="Player\MoveControlledCharacterTest.cs" />
     <Compile Include="Rendering\ShowAllRenderableObjectsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\ShowAnimatedObjectsTest.cs" />

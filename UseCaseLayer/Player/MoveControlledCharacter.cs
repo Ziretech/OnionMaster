@@ -8,11 +8,11 @@ namespace UseCaseLayer.Player
     public class MoveControlledCharacter : IMovable
     {
         private readonly List<GameObject> _moveable;
-        private readonly MoveControlledCharacterSingleObject _move;
+        private readonly IMovableSingle _move;
 
-        public MoveControlledCharacter(GameWorld gameWorld)
+        public MoveControlledCharacter(GameWorld gameWorld, IMovableSingle move)
         {
-            _move = new MoveControlledCharacterSingleObject();
+            _move = move;
             if (gameWorld == null)
             {
                 throw new ArgumentNullException("GameWorld must not be null");

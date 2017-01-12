@@ -21,8 +21,7 @@ namespace AdaptorLayer
 
         [Test]
         public void Should_create_use_case_to_show_all_renderable_objects()
-        {
-            
+        {            
             Assert.That(_provider.GetShowAllRenderableObjects(_world).GetType(), Is.EqualTo(typeof(ShowAllRenderableObjects)));
         }
 
@@ -42,12 +41,6 @@ namespace AdaptorLayer
         public void Should_create_use_case_to_show_animated_objects()
         {
             Assert.That(_provider.GetShowAnimatedObjects(_world, 0).GetType(), Is.EqualTo(typeof(ShowAnimatedObjects)));
-        }        
-
-        [Test]
-        public void Should_provide_use_case_to_move_controlled_object()
-        {
-            Assert.That(_provider.MoveControlledObject.GetType(), Is.EqualTo(typeof(MoveControlledCharacterSingleObject)));
         }
     }
 }
