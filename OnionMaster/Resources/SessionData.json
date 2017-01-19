@@ -3,12 +3,12 @@
         "name": "PlayerCharacter",
         "tilesetcoordinate": {
             "id": 0,
-            "x": 128,
-            "y": 448
+            "x": 0,
+            "y": 0
         },
         "tiledimension": {
             "width": 32,
-            "height": 64
+            "height": 32
         },
         "position": {
             "x": 128,
@@ -26,7 +26,7 @@
         "tilesetcoordinate": {
             "id": 0,
             "x": 32,
-            "y": 352
+            "y": 0
         },
         "tiledimension": {
             "width": 32,
@@ -42,7 +42,7 @@
         "tilesetcoordinate": {
             "id": 0,
             "x": 32,
-            "y": 352
+            "y": 0
         },
         "tiledimension": {
             "width": 32,
@@ -69,20 +69,18 @@
                 {
                     "id": 0,
                     "x": 0,
-                    "y": 0
+                    "y": 96
                 },
                 {
                     "id": 0,
                     "x": 32,
-                    "y": 0
+                    "y": 96
                 }
             ],
-            "areawidth": 2,
+            "areawidth": 7,
             "indices": [
-                0,
-                1,
-                1,
-                0
+                1,1,1,1,1,1,1,
+                1,0,0,0,0,0,1
             ]
         }
     },
@@ -99,6 +97,78 @@
             {
                 "tileSetCoordinate": {
                     "id": 0,
+                    "x": 32,
+                    "y": 32
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 32,
+                    "y": 0
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 32,
+                    "y": 64
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 32,
+                    "y": 0
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            }
+        ]
+    },
+    {
+        "position": {
+            "x": 32,
+            "y": 32,
+            "z": 5
+        },
+        "currentAnimation": {
+            "startTick": 0
+        },
+        "animation": [
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 0,
+                    "y": 32
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
                     "x": 0,
                     "y": 0
                 },
@@ -112,13 +182,85 @@
                 "tileSetCoordinate": {
                     "id": 0,
                     "x": 0,
+                    "y": 64
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 0,
+                    "y": 0
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            }
+        ]
+    },
+    {
+        "position": {
+            "x": 64,
+            "y": 32,
+            "z": 5
+        },
+        "currentAnimation": {
+            "startTick": 0
+        },
+        "animation": [
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 96,
                     "y": 32
                 },
                 "tileDimension": {
                     "width": 32,
                     "height": 32
                 },
-                "duration": 3
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 96,
+                    "y": 0
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 96,
+                    "y": 64
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
+            },
+            {
+                "tileSetCoordinate": {
+                    "id": 0,
+                    "x": 96,
+                    "y": 0
+                },
+                "tileDimension": {
+                    "width": 32,
+                    "height": 32
+                },
+                "duration": 5
             }
         ]
     }

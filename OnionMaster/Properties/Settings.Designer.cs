@@ -49,7 +49,7 @@ namespace OnionMaster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("tiles.png")]
         public string TileFilename {
             get {
                 return ((string)(this["TileFilename"]));
